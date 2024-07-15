@@ -23,4 +23,4 @@ I'm pursuing a B.S. in Computer Science with a minor in Electrical Engineering a
 
 My interests lie in areas of computer vision, deep learning, and the intersection of AI and philosphy. Specifically, I'm passionate about neurotech and aspire to use my interest in computers to make healthcare more affordable and accessible.
 
-<b>Currently reading:<b> [Thus Spoke Zarathustra](https://www.goodreads.com/book/show/51893.Thus_Spoke_Zarathustra) by Friedrich Nietzsche
+<b>Currently reading:</b> [Thus Spoke Zarathustra](https://www.goodreads.com/book/show/51893.Thus_Spoke_Zarathustra) by Friedrich Nietzsche
