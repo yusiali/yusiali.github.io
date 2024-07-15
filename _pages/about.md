@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: developer, music producer, & soccer enthusiast.
+subtitle: developer, music producer, & soccer enthusiast
 
 
 profile:
