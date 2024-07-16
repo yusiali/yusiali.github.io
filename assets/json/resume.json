@@ -1,5 +1,5 @@
 {
-  "General Information": {
+  "general information": {
     "name": "Yusuf Ali",
     "label": "",
     "image": "",
@@ -12,7 +12,7 @@
   "education": [
     {
       "institution": "Texas A&M University",
-      "location": "College Station, TX",
+      
       "url": "",
       "area": "Minor in Neuroscience & Electrical Engineering",
       "studyType": "B.S. in Computer Science",
@@ -23,7 +23,7 @@
     }
   ],
 
-  "work": [
+  "experience": [
     {
       "name": "LearnToBot",
       "position": "Curriculum Developer and Instructor",
@@ -46,55 +46,26 @@
       "name": "Laredo Sports Medicine Clinic",
       "position": "Robotic Surgery Intern",
       "url": "",
-      "startDate": "June 2022",
-      "endDate": "July 2022",
+      "date": "2022",
       "summary": "",
       "highlights": ["Developed machine learning algorithms for Stryker Mako surgical machines and worked with departments in the clinic including research and development, physical training, and marketing.", "Met with professionals involved in the biotechnology industry from Texas A&M International University."]
     }
   ],
   
-  "awards": [
+  "honors & awards": [
     {
-      "title": "Global Finals: 3rd Place Award",
-      "date": "June 2023",
-      "awarder": "Destination Imagination",
-      "url": "",
-      "summary": "Our LearnToBot Destination Imagination team received this award for placing 3rd in the Fine Arts Challenge at Destination Imagination’s annual competition. To achieve this award, our team’s project also won its district and state competitions."
+      "date": "2023",
+      "highlights": ["<a href='https://www.destinationimagination.org/challenge-experience/global-finals/'>Destination Imagination</a> - Global Finals: 3rd Place Award", "The Woodforest Bank Triathlon Finisher", "UTCS Robotics Champion"]
     },
     {
-      "title": "The Woodforest Bank Triathlon Finisher",
-      "date": "May 2023",
-      "awarder": "The Woodlands Township Parks and Recreation Department",
-      "url": "",
-      "summary": "I received this award for completing The Woodforest Bank TRI. The triathlon consisted of a 500-meter open swim, a 12.8-mile bike ride, and a 5-kilometer run."
-    },
-    {
-      "title": "UTCS Robotics Champion",
-      "date": "Aug. 2023",
-      "awarder": "The University of Texas at Austin Department of Computer Science",
-      "url": "",
-      "summary": "I achieved this award for ranking first place in UT Austin's annual robotics competition. This event consisted of building and coding a robocar to traverse through a race track in the fastest time possible."
-    },
-    {
-      "title": "NHSMUN Award of Distinction in Research & Preparation",
-      "date": "March 2022",
-      "awarder": "National High School Model United Nations",
-      "url": "",
-      "summary": "Our club was selected for this honor based on research papers we had written for the NHSMUN 2022 Conference."
-    },
-    {
-      "title": "NHSMUN Award of Merit",
-      "date": "March 2022",
-      "awarder": "National High School Model United Nations",
-      "url": "",
-      "summary": "My team was recognized for this honor based on our individual performance during the NHSMUN 2022 Conference."
+      "date": "2022",
+      "highlights": ["<a href='https://imuna.org/nhsmun/nyc/'>NHSMUN</a> (National High School Model United Nations) Award of Distinction in Research & Preparation", "<a href='https://imuna.org/nhsmun/nyc/'>NHSMUN</a> Award of Merit"]
     }
   ],
 
-  "volunteer": [
+  "Volunteer": [
     {
       "organization": "Saudi Aramco Shuf Shop Charity",
-      "location": "",
       "position": "Storekeeper",
       "url": "",
       "startDate": "2018",
@@ -128,32 +99,24 @@
       "summary": "The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914)."
     }
   ],
-  "skills": [
+  "technical skills": [
     {
       "name": "Languages",
       "level": "Master",
       "icon": "fa-solid fa-hashtag",
-      "keywords": [
-        "Python", 
-        "Java", 
-        "C/C++", 
-        "C#", 
-        "HTML/CSS", 
-        "JavaScript", 
-        "SQL"
-      ]
-    }
-  ],
-  "languages": [
-    {
-      "language": "German",
-      "fluency": "Native speaker",
-      "icon": ""
+      "summary": "Python, Java, C/C++, C#, HTML/CSS, JavaScript, SQL"
     },
     {
-      "language": "English",
-      "fluency": "Fluent",
-      "icon": ""
+      "name": "Development Tools",
+      "level": "Master",
+      "icon": "fa-solid fa-hashtag",
+      "summary": "Visual Studio, VS Code, PyCharm, GNU, AutoCAD, Blender, Ableton"
+    },
+    {
+      "name": "Libraries",
+      "level": "Master",
+      "icon": "fa-solid fa-hashtag",
+      "summary": "Pandas, BeautifulSoup, NumPy, Matplotlib, scikit-learn, TensorFlow, Tweepy (Twitter API)"
     }
   ],
   "interests": [
