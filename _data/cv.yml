@@ -4,7 +4,7 @@
     - name: Full Name
       value: Yusuf Ali
     - name: Languages
-      value: English, Hindhi, Arabic
+      value: English, Hindi, Arabic
 
 - title: Education
   type: time_table
@@ -48,7 +48,7 @@
   contents:
     - year: 2023
       items:
-        - <a href='https://www.destinationimagination.org/challenge-experience/global-finals/'>Destination Imagination</a> - Global Finals: 3rd Place Award
+        - <a href='https://www.destinationimagination.org/challenge-experience/global-finals/'>Destination Imagination</a> 3rd Place Award
         - The Woodforest Bank Triathlon Finisher
         - UTCS Robotics Champion
     - year: 2022
@@ -56,19 +56,12 @@
         - <a href='https://imuna.org/nhsmun/nyc/'>NHSMUN</a> (National High School Model United Nations) Award of Distinction in Research & Preparation
         - <a href='https://imuna.org/nhsmun/nyc/'>NHSMUN</a> Award of Merit
 
-- title: Projects
-  type: time_table
-  contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
-
 - title: Technical Skills
   type: list
   contents:
-    - <u>Languages:</u> Python, Java, C/C++, C#, HTML/CSS, JavaScript, SQL
-    - <u>Development Tools:</u> Visual Studio, VS Code, PyCharm, GNU, AutoCAD, Blender, Ableton
-    - <u>Libraries:</u> Pandas, BeautifulSoup, NumPy, Matplotlib, scikit-learn, TensorFlow, Tweepy (Twitter API)
+    - <b>Languages:</b> Python, Java, C/C++, C#, HTML/CSS, JavaScript, SQL
+    - <b>Development Tools:</b> Visual Studio, VS Code, PyCharm, GNU, AutoCAD, Blender, Ableton
+    - <b>Libraries:</b> Pandas, BeautifulSoup, NumPy, Matplotlib, scikit-learn, TensorFlow, Tweepy (Twitter API)
 
 - title: Interests
   type: nested_list
