@@ -8,7 +8,7 @@ subtitle: developer, music producer, & soccer enthusiast
 profile:
   align: right
   image: prof_pic.jpg
-  image_circular: true # crops the image to make it circular
+  image_circular: false # crops the image to make it circular
   more_info: >
     <p>College Station, TX 77840</p>
 
