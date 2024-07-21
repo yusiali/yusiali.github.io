@@ -16,36 +16,35 @@ related_publications: true
   <li>Programmed the time functions of the watch in C.</li>
 </ul> 
 
-Design Process
 
-✦ It took me around half a year to design the final PCB and gather all the components I needed for the watch.
-    ✦ All the parts I used are in the 'nixie-list.xlsx' file for reference.   
-    ✦ 'watch-PCB.png' contains a diagram of my PCB as well.
-✦ Initially, my watch display consisted of a small oled screen, but I quickly scrapped that idea once I found out about Nixie tubes.
-✦ I had minimal soldering and PCB design experience before making my nixie tube watch, so I learned most of these skills on the go lol.
-
-Coding
-
-✦ I coded the time functions in C.
-    ✦ the .hex files have the code I wrote for the watch.   
-    ✦ I coded on the MPLAB IDE since it has built-in MCU support is easy to use.   
-    ✦ MCUs usually take hex files as code (due to memory space) so I converted my code to hex files.
-✦ I used a 16 pin-32 pin DIP adapter to connect my PIC-16 MCU to my computer and upload the code to it.
-    ✦ I worked with a PICkit 3 to transfer files from my computer to the MCU.
-
-Datasheets & Additional Info
-
-✦ [IN-16 Nixie Tube Datasheet](https://www.tube-tester.com/sites/nixie/dat_arch/IN-16_02.pdf).
+<b>Design Process</b>
+<ul>
+  <li>It took me around half a year to design the final PCB and gather all the components I needed for the watch.</li>
+  <li>Initially, my watch display consisted of a small oled screen, but I quickly scrapped that idea once I found out about Nixie tubes.</li>
+  <li>I had minimal soldering and PCB design experience before making my nixie tube watch, so I learned most of these skills on the go lol.</li>
+</ul> 
 
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+<b>Coding</b>
+<ul>
+  <li>I coded the time functions in C.</li>
+  <ul>
+    <li>I coded on the MPLAB IDE since it has built-in MCU support is easy to use. </li>
+    <li>MCUs usually take hex files as code (due to memory space) so I converted my code to hex files.</li>
+  </ul> 
+  <li>I used a 16 pin-32 pin DIP adapter to connect my PIC-16 MCU to my computer and upload the code to it.</li>
+  <ul>
+    <li>I worked with a PICkit 3 to transfer files from my computer to the MCU.</li>
+  </ul>
+</ul> 
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+
+<b>Watch my vid explaining the watch build process and the science behind Nixie tubes!</b>
+<iframe width="1536" height="630" src="https://www.youtube.com/embed/iHFu8EpVipM" title="How I Made A Nixie Tube Watch!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<b>(GitHub Repo with documentation and code)[https://github.com/yusiali/nixie-tube-watch]</b>
+
+
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
