@@ -9,10 +9,12 @@ related_publications: true
 ---
 
 <b>Objective: Build an analog watch from scratch using cathode ray Nixie tubes from the 1950s.</b>
-    - Designed printed circuit boards to keep the form factor of the watch as compact as possible.
-    - Created a Qi standard charging module for the watch to charge wirelessly.
-    - Built the watch case using resin and CNC-cut glass.
-    - Programmed the time functions of the watch in C.
+<ul>
+  <li>Designed printed circuit boards to keep the form factor of the watch as compact as possible.</li>
+  <li>Created a Qi standard charging module for the watch to charge wirelessly.</li>
+  <li>Built the watch case using resin and CNC-cut glass.</li>
+  <li>Programmed the time functions of the watch in C.</li>
+</ul> 
 
 Design Process
 
