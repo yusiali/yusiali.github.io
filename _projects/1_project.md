@@ -1,16 +1,40 @@
 ---
 layout: page
-title: project 1
-description: with background image
-img: assets/img/12.jpg
+title: Nixie Tube Watch
+description: DIY watch with Nixie tubes from the 1950s. 
+img: assets/img/nixieWatch.HEIC
 importance: 1
 category: work
 related_publications: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+<b>Objective: Build an analog watch from scratch using cathode ray Nixie tubes from the 1950s.</b>
+    - Designed printed circuit boards to keep the form factor of the watch as compact as possible.
+    - Created a Qi standard charging module for the watch to charge wirelessly.
+    - Built the watch case using resin and CNC-cut glass.
+    - Programmed the time functions of the watch in C.
+
+Design Process
+
+✦ It took me around half a year to design the final PCB and gather all the components I needed for the watch.
+    ✦ All the parts I used are in the 'nixie-list.xlsx' file for reference.   
+    ✦ 'watch-PCB.png' contains a diagram of my PCB as well.
+✦ Initially, my watch display consisted of a small oled screen, but I quickly scrapped that idea once I found out about Nixie tubes.
+✦ I had minimal soldering and PCB design experience before making my nixie tube watch, so I learned most of these skills on the go lol.
+
+Coding
+
+✦ I coded the time functions in C.
+    ✦ the .hex files have the code I wrote for the watch.   
+    ✦ I coded on the MPLAB IDE since it has built-in MCU support is easy to use.   
+    ✦ MCUs usually take hex files as code (due to memory space) so I converted my code to hex files.
+✦ I used a 16 pin-32 pin DIP adapter to connect my PIC-16 MCU to my computer and upload the code to it.
+    ✦ I worked with a PICkit 3 to transfer files from my computer to the MCU.
+
+Datasheets & Additional Info
+
+✦ [IN-16 Nixie Tube Datasheet](https://www.tube-tester.com/sites/nixie/dat_arch/IN-16_02.pdf).
+
 
 To give your project a background in the portfolio page, just add the img tag to the front matter like so:
 
