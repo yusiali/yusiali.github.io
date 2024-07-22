@@ -40,9 +40,11 @@ related_publications: true
 
 
 <b>Watch my vid explaining the watch build process and the science behind Nixie tubes!</b>
-<iframe width="1536" height="630" src="https://www.youtube.com/embed/iHFu8EpVipM" title="How I Made A Nixie Tube Watch!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="773" height="315" src="https://www.youtube.com/embed/iHFu8EpVipM" title="How I Made A Nixie Tube Watch!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<b>(GitHub Repo with documentation and code)[https://github.com/yusiali/nixie-tube-watch]</b>
+
+
+<b><a href="https://github.com/yusiali/nixie-tube-watch">GitHub Repo with documentation and code</a></b>
 
 
 
