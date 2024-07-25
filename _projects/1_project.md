@@ -2,7 +2,7 @@
 layout: page
 title: Nixie Tube Watch
 description: DIY watch with Nixie tubes from the 1950s. 
-img: assets/img/nixieWatch.HEIC
+img: assets/img/NixieTubeVideoThumbnail.png
 importance: 1
 category: work
 related_publications: true
