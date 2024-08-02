@@ -8,6 +8,15 @@ category: work
 related_publications: true
 ---
 
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/nixieWatch.jpg" title="Nixie Watch" class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+<div class="caption">
+    Here's my Nixie tube watch up and running. I planned this out to be a summer project before the start of uni, but it ended up taking over 6 months lol.
+</div>
+
 <b>Objective: Build an analog watch from scratch using cathode ray Nixie tubes from the 1950s.</b>
 <ul>
   <li>Designed printed circuit boards to keep the form factor of the watch as compact as possible.</li>
@@ -40,7 +49,11 @@ related_publications: true
 
 
 <b>Watch my vid explaining the watch build process and the science behind Nixie tubes!</b>
-<iframe width="640" height="338" src="https://www.youtube.com/embed/iHFu8EpVipM" title="How I Made A Nixie Tube Watch!" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div style="width: 100%; min-width: 400px; max-width: 800px;">
+<div style="position: relative; width: 100%; overflow: hidden; padding-top: 56.25%;">
+<p><iframe style="position: absolute; top: 0; left: 0; right: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/-SXbjBKAPGI" width="560" height="315" allowfullscreen="allowfullscreen" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></p>
+</div>
+</div>
 
 
 
@@ -50,26 +63,19 @@ related_publications: true
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/IMG_4832.jpg" title="Nixie PCB" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="/assets/img/nixieDiagram.gif" title="Nixie Diagram" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/how-glow-discharge-works.png" title="Glow Discharge Diagram" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
+    A bit of the watch's innerworkings. On the left is the watch's PCB with all its parts soldered. In the middle is a schematic of a Nixie tube. On the right is a diagram of how glow discharge works (this is what gives Nixie tubes their amber glow).
 </div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+
 
 You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
 Say you wanted to write a bit about your project before you posted the rest of the images.
