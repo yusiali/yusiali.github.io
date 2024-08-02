@@ -73,6 +73,3 @@ related_publications: false
 
 <p><b><a href="https://github.com/yusiali/nixie-tube-watch">GitHub Repo with documentation and code</a></b></p>
 
-```
-
-{% endraw %}
