@@ -4,7 +4,8 @@ title: Obscure - The Game
 description: A roguelike game I made for my brother
 img: assets/img/obscure.gif
 importance: 3
-related_publications: true
+redirect: https://github.com/yusiali/obscureGame
+related_publications: false
 ---
 
 Every project has a beautiful feature showcase page.
