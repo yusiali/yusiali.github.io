@@ -23,10 +23,10 @@ giscus_comments: false
 </ul> 
 
 <div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
+    <div class="col-sm-5 mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/mnistDigits.png" title="mnist digits" class="img-fluid rounded z-depth-1" %}
     </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
+    <div class="col-sm-5 mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/mnistnet.png" title="mnist neural net diagram" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
