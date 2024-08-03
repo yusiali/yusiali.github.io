@@ -74,6 +74,5 @@ related_publications: true
 </div>
 
 <div> 
-<p><b><a href="https://github.com/yusiali/nixie-tube-watch">
-GitHub Repo with documentation and code</a></b></p>
+<p>{% cite nixieRepo %} contains addtional Nixie tube documentation and code.</p>
 </div> 
