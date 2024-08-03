@@ -10,3 +10,12 @@
 
 "nixieRepo":
   url: https://github.com/yusiali/nixie-tube-watch
+
+"mnistAli":
+  url: https://github.com/yusiali/mnistNetwork
+
+"mnistData":
+  url: https://yann.lecun.com/exdb/mnist/
+
+"mnistWeisberg":
+  url: https://jonathanweisberg.org/post/A%20Neural%20Network%20from%20Scratch%20-%20Part%201/
