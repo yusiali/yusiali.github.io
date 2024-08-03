@@ -35,6 +35,7 @@ related_publications: true
   </li>
 </ul> 
 
+
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
         {% include figure.liquid loading="eager" path="assets/img/IMG_4832.jpg" title="Nixie PCB" class="img-fluid rounded z-depth-1" %}
@@ -48,6 +49,7 @@ related_publications: true
 </div>
 <div class="caption">
     A bit of the watch's innerworkings. On the left is the watch's PCB with all its parts soldered. In the middle is a schematic of a Nixie tube. On the right is a diagram of how glow discharge works (this is what gives Nixie tubes their amber glow).
+
 
 </div>
 
@@ -73,6 +75,6 @@ related_publications: true
 </div>
 </div>
 
-<div> 
-<p>{% cite nixieRepo %} contains addtional Nixie tube documentation and code.</p>
-</div> 
+
+{% cite PhysRev.47.777 %} contains addtional Nixie tube documentation and code.
+
