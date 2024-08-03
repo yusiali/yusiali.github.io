@@ -5,7 +5,7 @@ description: DIY watch with Nixie tubes from the 1950s.
 img: assets/img/NixieTubeVideoThumbnail.png
 importance: 1
 category: fun
-related_publications: false
+related_publications: true
 ---
 
 <div class="row">
@@ -74,5 +74,6 @@ related_publications: false
 </div>
 
 <div> 
-<p><b><a href="https://github.com/yusiali/nixie-tube-watch">GitHub Repo with documentation and code</a></b></p>
+<p><b><a href="https://github.com/yusiali/nixie-tube-watch">
+GitHub Repo with documentation and code</a></b></p>
 </div> 
