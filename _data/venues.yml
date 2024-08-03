@@ -7,3 +7,6 @@
 
 "Vision":
   color: "#009f36"
+
+"nixieRepo":
+  url: https://github.com/yusiali/nixie-tube-watch

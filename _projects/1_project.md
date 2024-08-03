@@ -76,5 +76,5 @@ related_publications: true
 </div>
 
 
-{% cite PhysRev.47.777 %} contains addtional Nixie tube documentation and code.
+{% cite nixieRepo %} contains addtional Nixie tube documentation and code.
 
