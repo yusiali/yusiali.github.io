@@ -14,7 +14,8 @@ related_publications: false
     </div>
 </div>
 <div class="caption">
-    Here's my watch up and running. I planned this out to be a summer project before the start of uni, but it ended up taking over half a year lol.\n
+    Here's my watch up and running. I planned this out to be a summer project before the start of uni, but it ended up taking over half a year lol.
+
 </div>
 
 <b>Objective: Build an analog watch from scratch using cathode ray Nixie tubes from the 1950s.</b>
@@ -22,7 +23,7 @@ related_publications: false
   <li>Designed printed circuit boards to keep the form factor of the watch as compact as possible.</li>
   <li>Created a Qi standard charging module for the watch to charge wirelessly.</li>
   <li>Built the watch case using resin and CNC-cut glass.</li>
-  <li>Programmed the time functions of the watch in C.\n</li>
+  <li>Programmed the time functions of the watch in C.</li>
 </ul> 
 
 
@@ -30,7 +31,8 @@ related_publications: false
 <ul>
   <li>It took me around half a year to design the final PCB and gather all the components I needed for the watch.</li>
   <li>Initially, my watch display consisted of a small oled screen, but I quickly scrapped that idea once I found out about Nixie tubes.</li>
-  <li>I had minimal soldering and PCB design experience before making my nixie tube watch, so I learned most of these skills on the go.\n</li>
+  <li>I had minimal soldering and PCB design experience before making my nixie tube watch, so I learned most of these skills on the go.
+  </li>
 </ul> 
 
 <div class="row">
@@ -45,7 +47,8 @@ related_publications: false
     </div>
 </div>
 <div class="caption">
-    A bit of the watch's innerworkings. On the left is the watch's PCB with all its parts soldered. In the middle is a schematic of a Nixie tube. On the right is a diagram of how glow discharge works (this is what gives Nixie tubes their amber glow).\n
+    A bit of the watch's innerworkings. On the left is the watch's PCB with all its parts soldered. In the middle is a schematic of a Nixie tube. On the right is a diagram of how glow discharge works (this is what gives Nixie tubes their amber glow).
+
 </div>
 
 <b>Coding</b>
@@ -61,9 +64,7 @@ related_publications: false
   </ul>
 </ul> 
 
-<div style="white-space: pre"> 
-
-
+<div> 
 <p><b>Watch my vid explaining the watch build process and the science behind Nixie tubes!</b></p>
 <div style="width: 100%; min-width: 400px; max-width: 800px;">
 <div style="position: relative; width: 100%; overflow: hidden; padding-top: 56.25%;">
@@ -72,7 +73,6 @@ related_publications: false
 </div>
 </div>
 
-<div style="white-space: pre"> 
-
+<div> 
 <p><b><a href="https://github.com/yusiali/nixie-tube-watch">GitHub Repo with documentation and code</a></b></p>
 </div> 
