@@ -5,9 +5,9 @@ description: A neural network that recognizes handwritten digits with 98% precis
 img: assets/img/mnist.gif
 importance: 2
 category: work
+related_publications: true
 giscus_comments: false
 ---
-{% cite mnistAli %} contains python code for both v1 and v2 of the neural network. 
 
 
 <b>Objective: Build an neural network from scratch for the MNIST database.</b>
@@ -24,7 +24,7 @@ giscus_comments: false
 
 <div class="row justify-content-sm-center">
     <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/mnist.png" title="mnist digits" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid path="assets/img/mnistDigits.png" title="mnist digits" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm-4 mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/mnistnet.png" title="mnist neural net diagram" class="img-fluid rounded z-depth-1" %}
@@ -33,6 +33,10 @@ giscus_comments: false
 <div class="caption">
     Sample digits from the MNIST database (left) and a simple visual of how the neural network trains on them (right).
 </div>
+
+
+{% cite mnistAli %} contains python code for both v1 and v2 of the neural network. 
+
 
 <b>Helpful Resources</b>
 <ul>
