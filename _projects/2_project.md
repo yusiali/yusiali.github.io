@@ -2,7 +2,7 @@
 layout: page
 title: MNIST Neural Network from Scratch
 description: A neural network that recognizes handwritten digits with 98% precision
-img: assets/img/mnistDigits.png
+img: assets/img/mnist.gif
 importance: 2
 category: work
 giscus_comments: false

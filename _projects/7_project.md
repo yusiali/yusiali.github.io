@@ -1,10 +1,9 @@
 ---
 layout: page
-title: project 7
-description: with background image
-img: assets/img/4.jpg
-importance: 1
-category: work
+title: Obscure - The Game
+description: A roguelike game I made for my brother
+img: assets/img/obscure.gif
+importance: 3
 related_publications: true
 ---
 
