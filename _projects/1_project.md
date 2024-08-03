@@ -64,7 +64,12 @@ related_publications: true
   <ul>
     <li>I worked with a PICkit 3 to transfer files from my computer to the MCU.</li>
   </ul>
+    <ul>
+    <li>I worked with a PICkit 3 to transfer files from my computer to the MCU.</li>
+  </ul>
+  <li>{% cite nixieRepo %} contains addtional Nixie tube documentation and code.</li>
 </ul> 
+
 
 <div> 
 <p><b>Watch my vid explaining the watch build process and the science behind Nixie tubes!</b></p>
@@ -74,7 +79,3 @@ related_publications: true
 </div>
 </div>
 </div>
-
-
-{% cite nixieRepo %} contains addtional Nixie tube documentation and code.
-
