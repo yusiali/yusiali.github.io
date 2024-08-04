@@ -1,10 +1,10 @@
 ---
 layout: page
-title: project 3 with very long name
-description: a project that redirects to another website
-img: assets/img/7.jpg
-redirect: https://unsplash.com
-importance: 3
+title: CVS Health Searcher
+description: A web-scraping bot that searches through CVS Health for articles
+img: /assets/img/cvs-health-logo-stacked.png
+redirect: https://github.com/yusiali/cvs-health-searcher
+importance: 4
 category: work
 ---
 

@@ -15,7 +15,9 @@ related_publications: true
 </div>
 <div class="caption">
     Here's my watch up and running. I planned this out to be a summer project before the start of uni, but it ended up taking over half a year lol.
-
+<br>
+<br>
+<br>
 </div>
 
 <b>Objective: Build an analog watch from scratch using cathode ray Nixie tubes from the 1950s.</b>
@@ -24,6 +26,7 @@ related_publications: true
   <li>Created a Qi standard charging module for the watch to charge wirelessly.</li>
   <li>Built the watch case using resin and CNC-cut glass.</li>
   <li>Programmed the time functions of the watch in C.</li>
+  <br>
 </ul> 
 
 
@@ -33,6 +36,8 @@ related_publications: true
   <li>Initially, my watch display consisted of a small oled screen, but I quickly scrapped that idea once I found out about Nixie tubes.</li>
   <li>I had minimal soldering and PCB design experience before making my nixie tube watch, so I learned most of these skills on the go.
   </li>
+  <br>
+  <br>
 </ul> 
 
 
@@ -52,7 +57,8 @@ related_publications: true
 
 
 </div>
-
+<br>
+<br>
 <b>Coding</b>
 <ul>
   <li>I coded the time functions in C.</li>
@@ -71,14 +77,19 @@ related_publications: true
 </ul> 
 
 
-<div> 
+<div>
+<br>
+<br>
 <p><b>Watch my vid explaining the watch build process and the science behind Nixie tubes!</b></p>
 <div style="width: 100%; min-width: 400px; max-width: 800px;">
 <div style="position: relative; width: 100%; overflow: hidden; padding-top: 56.25%;">
 <p><iframe style="position: absolute; top: 0; left: 0; right: 0; width: 100%; height: 100%; border: none;" src="https://www.youtube.com/embed/iHFu8EpVipM" width="560" height="315" allowfullscreen="allowfullscreen" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></p>
 </div>
 </div>
-<br></br>
+<br>
+<br>
+<br>
+<br>
 </div>
 
 

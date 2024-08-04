@@ -20,23 +20,28 @@ giscus_comments: false
     <li>Added momentum to descent algo</li>
     <li>Better initialization of weights</li>
   </ul>
+  <br>
+  <br>
 </ul> 
 
 <div class="row justify-content-sm-center">
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-5 mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/mnistDigits.png" title="mnist digits" class="img-fluid rounded z-depth-1" %}
     </div>
-    <div class="col-sm mt-3 mt-md-0">
+    <div class="col-7 mt-3 mt-md-0">
         {% include figure.liquid path="assets/img/mnistnet.png" title="mnist neural net diagram" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
     Sample digits from the MNIST database (left) and a simple visual of how the neural network trains on them (right).
+  <br>
+  <br>
 </div>
 
 
 {% cite mnistAli %} contains python code for both v1 and v2 of the neural network. 
-
+  <br>
+  <br>
 
 <b>Helpful Resources</b>
 <ul>
@@ -44,3 +49,7 @@ giscus_comments: false
   <li>Official page for MNIST database {% cite mnistData %}</li>
   <li>Johnathan Weisberg's blogs on neural networks {% cite mnistWeisberg %}</li>
 </ul> 
+  <br>
+  <br>
+  <br>
+  <br>
