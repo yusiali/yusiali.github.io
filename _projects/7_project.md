@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Obscure - The Game
-description: A roguelike game I made for my brother
+title: Obscure
+description: A 2D roguelike game I made for my brother
 img: assets/img/obscure.jpg
 importance: 3
 redirect: https://github.com/yusiali/obscureGame
