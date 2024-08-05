@@ -10,7 +10,7 @@ giscus_comments: false
 ---
 
 
-<b>Objective: Build an neural network from scratch for the MNIST database.</b>
+<b>Objective: Build a neural network from scratch for the MNIST database.</b>
 <ul>
   <li>Built from scratch with numpy</li>
   <li>Optimized neural network with 98% precision after 20 epochs of training</li>
