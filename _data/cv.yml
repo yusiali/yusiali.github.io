@@ -62,9 +62,9 @@
 - title: Technical Skills
   type: list
   contents:
-    - <b>Languages:</b> Python, Java, C/C++, C#, HTML/CSS, JavaScript, SQL
-    - <b>Development Tools:</b> Visual Studio, VS Code, PyCharm, GNU, AutoCAD, Blender, Ableton
-    - <b>Libraries:</b> Pandas, BeautifulSoup, NumPy, Matplotlib, scikit-learn, TensorFlow, Tweepy (Twitter API)
+    - <b>Languages:</b> Python, Java, C/C++, C#, HTML/CSS, JavaScript
+    - <b>Development Tools:</b> VS Code, PyCharm, GNU, AutoCAD, Blender, Ableton
+    - <b>Libraries:</b> Pandas, BeautifulSoup, NumPy, Matplotlib, scikit-learn, TensorFlow
 
 - title: Interests
   type: nested_list
