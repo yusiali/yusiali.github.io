@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Started studying CS @ Texas A&M.
+Started studying CS at Texas A&M.
