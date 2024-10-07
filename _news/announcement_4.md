@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Began development of a BCI-controlled wheelchair with Aggies Create!
+Began development of a BCI-controlled wheelchair with Aggies Create! 
