@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Started designing a BCI-controlled wheelchair!
+Started designing a BCI-controlled wheelchair with Aggies Create!
