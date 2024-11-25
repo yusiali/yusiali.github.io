@@ -11,12 +11,12 @@
   contents:
     - title: BS in Computer Science
       institution: Texas A&M University
-      year: 2023 - 2027
+      year: 2023 - 2026
       description:
         - Minor in Neuroscience
         - title: 'Involvements:'
           contents:
-            - Aggies Create, Student Engineers' Council, A&M Club Soccer
+            - Aggies Create (AggiesBCI - Team Lead), Student Engineers' Council (EnVision Conference Co-Chair)
         - title: 'Relevant Coursework:'
           contents:
             - Data Structures & Algorithms, Discrete Structures for Computing, Computer Organization, Program Design & Concepts
@@ -30,7 +30,7 @@
       year: 2022 - Present
       description:
         - Teaching over 100 students how to build and code problem-solving robots in weekly camps.
-        - Designing and testing software/hardware projects for use in future camps and classes.
+        - Designing and testing software/hardware projects for future camps and classes.
         - Hosting robotics camps for Destination Imagination teams in our community.
     - title: Administrative Assistant
       institution: Muse Mantra School of Music & Arts
@@ -49,6 +49,9 @@
 - title: Honors & Awards
   type: time_table
   contents:
+    - year: 2024
+      items:
+        - <a href='https://www.aggiescreate.com/'>Aggies Create</a> Innovation Expo Winner
     - year: 2023
       items:
         - <a href='https://www.destinationimagination.org/challenge-experience/global-finals/'>Destination Imagination</a> 3rd Place Award
@@ -71,8 +74,8 @@
   contents:
     - title: Computer Science
       items:
+        - Human-Computer Interaction
         - Deep Learning
-        - Neural Networks
         - Computer Vision
         - MCUs
     - title: Neuroscience
