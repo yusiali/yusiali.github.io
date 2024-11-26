@@ -31,7 +31,9 @@ related_publications: true
 <br>
 <br>
 <b>Our Innovation Expo Presentation</b>
+<div class="row justify-content-center">
 <iframe src="https://1drv.ms/p/c/ce8588b966e5e6f5/IQTctm6FmkamSrHcnPeA2CrBAa59I_Fd3RgVNvGW-F_JH6c?wdAr=1.7777777777777777" width="876px" height="518px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+<div>
 <br>
 <br>
 <br>
@@ -39,7 +41,7 @@ related_publications: true
 
 
 <div class="row">
-    <div class="mt-3 mt-md-0" style="width: 25%;">
+    <div class="col-sm-3 mt-3 mt-md-0" style="width: 25%;">
         {% include figure.liquid loading="eager" path="/assets/img/IMG_5930.gif" title="Nixie PCB" class="img-fluid rounded z-depth-1" %}
     </div>
     <div class="col-sm mt-3 mt-md-0">
