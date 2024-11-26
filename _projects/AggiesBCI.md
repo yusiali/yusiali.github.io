@@ -8,9 +8,8 @@ category: fun
 related_publications: true
 ---
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/AggiesBCITeamPic.jpg" title="Nixie Watch" class="img-fluid rounded z-depth-1" %}
+<div class="row justify-content-center">    <div class="mt-3 mt-md-0 " style="width: 70%;">
+        {% include figure.liquid loading="eager" path="assets/img/AggiesBCITeamPic.jpeg" title="Nixie Watch" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
