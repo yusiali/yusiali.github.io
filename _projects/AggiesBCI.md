@@ -79,3 +79,24 @@ related_publications: true
 <br>
 <br>
 
+<b>What's Next</b>
+<ul>
+  <li>Refining our Design</li>
+  <ul>
+    <li>This upcoming semester, our team will work on reinforcing our wheelchair interface and perhaps hacking the joystick directly as we did with the Hexbug controller</li>
+    <li>We also aim to make our design more modular to fit various wheelchair modes</li>
+  </ul> 
+  <li>Future Project Ideas</li>
+  <ul>
+    <li>Beinb able to control a digital interface from mental commands (mouse, cursor, keyboard, etc.). This would give individuals with mobility issues much more freedom in today's world</li>
+  </ul>
+    <ul>
+    <li>A mechanical arm that can grasp/move items based on mental commands. This would essentially be a 'third arm' for indivuduals working in environments that require their limbs to be occupied (construction, mechanical engineering, etc.)</li>
+  </ul>
+</ul> 
+<br>
+<br>
+
+
+
+
