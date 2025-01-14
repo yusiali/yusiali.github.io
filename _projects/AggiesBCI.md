@@ -13,7 +13,7 @@ related_publications: true
     </div>
 </div>
 <div class="caption">
-    The AggiesBCI Team: (Pranav, Garner, Tejas, Oswin, Yusuf (me), & Daniel). None of this would have been possible without you guys!
+    The AggiesBCI Team: (Pranav, Garner, Tejas, Oswin, me, & Daniel). None of this would have been possible without you guys!
 <br>
 <br>
 <br>
@@ -71,10 +71,10 @@ related_publications: true
     <li>I worked with the EMOTIV Insight headset to train the mental commands using the EmotivBCI software.</li>
   </ul>
     <ul>
-    <li>I coded in Python using the Cortex API to detect the headset's commands and sent them to the Arduino Nano via the serial monitor</li>
+    <li>I coded in Python using the Cortex API to detect the headset's commands and sent them to the Arduino Nano via the serial monitor.</li>
   </ul>
   <ul>
-    <li>I used C to code the servo movements for the linear actuator and take in BCI commands through the serial monitor</li>
+    <li>I used C to code the servo movements for the linear actuator and take in BCI commands through the serial monitor.</li>
   </ul>
   <li>{% cite AggiesBCIRepo %} contains additional EMOTIV/OpenBCI documentation and all the code I developed for this project.</li>
 </ul> 
@@ -85,15 +85,15 @@ related_publications: true
 <ul>
   <li>Refining our Design</li>
   <ul>
-    <li>This upcoming semester, our team will work on reinforcing our wheelchair interface and perhaps hacking the joystick directly as we did with the Hexbug controller</li>
-    <li>We also aim to make our design more modular to fit various wheelchair modes</li>
+    <li>This upcoming semester, our team will work on reinforcing our wheelchair interface and perhaps hacking the joystick directly as we did with the Hexbug controller.</li>
+    <li>We also aim to make our design more modular to fit various wheelchair models.</li>
   </ul> 
   <li>Future Project Ideas</li>
   <ul>
-    <li>Beinb able to control a digital interface from mental commands (mouse, cursor, keyboard, etc.). This would give individuals with mobility issues much more freedom in today's world</li>
+    <li>A BCI system enabling control of digital interface through mental commands (mouse, cursor, keyboard, etc.). This would give individuals with mobility issues much more freedom in today's world.</li>
   </ul>
     <ul>
-    <li>A mechanical arm that can grasp/move items based on mental commands. This would essentially be a 'third arm' for indivuduals working in environments that require their limbs to be occupied (construction, mechanical engineering, etc.)</li>
+    <li>A mechanical arm that can grasp/move items based on mental commands. This would essentially be a 'third arm' for indivuduals working in environments that require their limbs to be occupied (construction, mechanical engineering, etc.).</li>
   </ul>
 </ul> 
 <br>

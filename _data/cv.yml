@@ -19,7 +19,7 @@
             - Aggies Create (AggiesBCI - Team Lead), Student Engineers' Council (EnVision Conference Co-Chair)
         - title: 'Relevant Coursework:'
           contents:
-            - Data Structures & Algorithms, Discrete Structures for Computing, Computer Organization, Program Design & Concepts
+            - Data Structures & Algorithms, Discrete Structures for Computing, Computer Organization, Program Design & Concepts, Programming Languages
 
 
 - title: Experience
@@ -65,7 +65,7 @@
 - title: Technical Skills
   type: list
   contents:
-    - <b>Languages:</b> Python, Java, C/C++, C#, HTML/CSS, JavaScript
+    - <b>Languages:</b> Python, Java, C, C++, C#, HTML, JavaScript
     - <b>Development Tools:</b> VS Code, PyCharm, GNU, AutoCAD, Blender, Ableton
     - <b>Libraries:</b> Pandas, BeautifulSoup, NumPy, Matplotlib, scikit-learn, TensorFlow
 
