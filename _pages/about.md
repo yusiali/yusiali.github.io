@@ -7,7 +7,7 @@ subtitle: developer
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: prof_pic.JPG
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>College Station, TX 77840<br><br></p>
