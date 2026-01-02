@@ -5,7 +5,7 @@ title: resume
 nav: true
 nav_order: 5
 cv_pdf: YusufAli-Resume.pdf
-description: Updated November 2024.
+description: Updated Jan 2026.
 toc:
   sidebar: left
 ---
