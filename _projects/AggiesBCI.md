@@ -13,7 +13,7 @@ related_publications: true
     </div>
 </div>
 <div class="caption">
-    The AggiesBCI Team: (Pranav, Garner, Tejas, Oswin, me, & Daniel). None of this would have been possible without you guys!
+    The AggiesBCI Team: (Oswin, Pranav, me, Garner, & Daniel). None of this would have been possible without you guys!
 <br>
 <br>
 <br>

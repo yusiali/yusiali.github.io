@@ -1,10 +1,24 @@
-- title: General Information
-  type: map
+- title: Interests
+  type: nested_list
   contents:
-    - name: Full Name
-      value: Yusuf Ali
-    - name: Languages
-      value: English, Hindi, Arabic
+    - title: Computer Science
+      items:
+        - Human-Computer Interaction
+        - Deep Learning
+        - Computer Vision
+        - MCUs
+    - title: Neuroscience
+      items:
+        - Brain-Computer Interfaces (BCIs)
+        - Electroencephalograms (EEGs)
+        - Neuroprosthetics
+        - Digital Signal Processing
+    - title: Philosophy
+      items:
+        - Existentialism
+        - Time Travel
+        - Nietzsche
+        - Kafka
 
 - title: Education
   type: time_table
@@ -25,6 +39,13 @@
 - title: Experience
   type: time_table
   contents:
+    - title: Neuroengineering Intern
+      institution: Paradromics
+      year: 2025 - Present
+      description:
+        - Optimizing neural data transmission and machine-learning models to enhance decoding accuracy of the <a href='https://www.paradromics.com/product'>Connexus®</a> Brain-Computer Interface.
+        - Building a downstream application to showcase the data rate capabilities of the BCI platform.
+
     - title: Curriculum Developer & Instructor
       institution: LearnToBot
       year: 2022 - Present
@@ -32,6 +53,7 @@
         - Teaching over 100 students how to build and code problem-solving robots in weekly camps.
         - Designing and testing software/hardware projects for future camps and classes.
         - Hosting robotics camps for Destination Imagination teams in our community.
+
     - title: Administrative Assistant
       institution: Muse Mantra School of Music & Arts
       year: 2021 - Present
@@ -68,24 +90,3 @@
     - <b>Languages:</b> Python, Java, C, C++, C#, HTML, JavaScript
     - <b>Development Tools:</b> VS Code, PyCharm, GNU, AutoCAD, Blender, Ableton
     - <b>Libraries:</b> Pandas, BeautifulSoup, NumPy, Matplotlib, scikit-learn, TensorFlow
-
-- title: Interests
-  type: nested_list
-  contents:
-    - title: Computer Science
-      items:
-        - Human-Computer Interaction
-        - Deep Learning
-        - Computer Vision
-        - MCUs
-    - title: Neuroscience
-      items:
-        - Brain-Computer Interfaces (BCIs)
-        - Electroencephalograms (EEGs)
-        - Neuroprosthetics
-    - title: Philosophy
-      items:
-        - Existentialism
-        - Time Travel
-        - Nietzsche
-        - Kafka
