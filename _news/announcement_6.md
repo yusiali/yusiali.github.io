@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Joined Paradromics as a Neuroengineer Intern! 
+Joined Paradromics as a Neuroengineer Intern.

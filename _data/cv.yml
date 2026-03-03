@@ -11,8 +11,8 @@
       items:
         - Brain-Computer Interfaces (BCIs)
         - Electroencephalograms (EEGs)
-        - Neuroprosthetics
         - Digital Signal Processing
+        - Neuroprosthetics
     - title: Philosophy
       items:
         - Existentialism
@@ -71,16 +71,15 @@
 - title: Honors & Awards
   type: time_table
   contents:
+    - year: 2025
+      items:
+        - Meloy Engineering Innovators Award Recipient
     - year: 2024
       items:
         - <a href='https://www.aggiescreate.com/'>Aggies Create</a> Innovation Expo Winner
     - year: 2023
       items:
         - The Woodforest Bank Triathlon Finisher
-    - year: 2022
-      items:
-        - <a href='https://imuna.org/nhsmun/nyc/'>NHSMUN</a> (National High School Model United Nations) Award of Distinction in Research & Preparation
-        - <a href='https://imuna.org/nhsmun/nyc/'>NHSMUN</a> Award of Merit
 
 - title: Technical Skills
   type: list

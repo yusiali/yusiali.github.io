@@ -20,7 +20,7 @@ social: true # includes social icons at the bottom of the page
 <br><br>
 I'm pursuing a BS in Computer Science with a minor in Neuroscience at Texas A&M University. 
 
-My interests lie at the intersection of tech and philosophy. Specifically, I'm passionate about neurotech and the future of neural interfaces and digital signal processing.
+My interests lie at the intersection of tech and philosophy. Specifically, I'm passionate about neurotech and the future of neural interfaces and digital signal processing. In 2025, I joined Paradromics as a neuroengineering intern, where I’m optimizing neural data transmission and improving the experimental rig system for the Connexus® BCI platform.
 
 <b>Currently reading:</b> [Thus Spoke Zarathustra](https://www.goodreads.com/book/show/51893.Thus_Spoke_Zarathustra) by Friedrich Nietzsche
 <br><br>
