@@ -340,8 +340,8 @@
 
   /* ───── Home — about prose ───── */
   .prose {
-    font-size: 18px;
-    line-height: 1.7;
+    font-size: 17px;
+    line-height: 1.65;
     color: var(--ink-soft);
     max-width: 36em;
   }
@@ -530,7 +530,7 @@
     font-style: italic;
     font-weight: 300;
     color: var(--muted);
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.55;
     max-width: 34em;
     margin: 0;
@@ -577,12 +577,6 @@
   /* ───── Responsive ───── */
   @media (max-width: 560px) {
     body { font-size: 17px; }
-    /* Bring prose down to match the body's mobile size so 18px text
-       doesn't underfill the narrow column compared to the 14.5px
-       entry notes beside it. Slightly tighter line-height keeps the
-       rhythm comfortable at the smaller size. */
-    .prose { font-size: 17px; line-height: 1.6; }
-    .project-desc { font-size: 16px; }
     ul.entries > li,
     .index-row { grid-template-columns: 72px 1fr; gap: 16px; }
   }

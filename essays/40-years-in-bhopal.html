@@ -248,6 +248,8 @@
     margin: 0 0 1.25em;
     text-wrap: pretty;
     color: var(--ink-soft);
+    font-size: 17px;
+    line-height: 1.65;
   }
   .prose p:first-of-type::first-line {
     /* keep simple — no small caps here */
@@ -275,9 +277,6 @@
 
   @media (max-width: 560px) {
     body { font-size: 17px; line-height: 1.65; }
-    /* Match body size on mobile so long-form prose packs more chars per
-       line in the narrow column instead of underfilling it. */
-    .prose p { font-size: 17px; line-height: 1.6; }
     h1.title { margin-bottom: 32px; }
     figure { margin: 28px 0; }
     footer.site-footer {
