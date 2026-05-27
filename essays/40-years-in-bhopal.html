@@ -25,6 +25,20 @@
     --pad-x: clamp(24px, 5vw, 56px);
   }
 
+  /* Widen on larger viewports — see index.html for rationale. */
+  @media (min-width: 1024px) {
+    :root {
+      --col: 780px;
+      --pad-x: clamp(40px, 6vw, 72px);
+    }
+  }
+  @media (min-width: 1440px) {
+    :root {
+      --col: 860px;
+      --pad-x: clamp(48px, 6vw, 96px);
+    }
+  }
+
   *, *::before, *::after { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); }
   body {
