@@ -32,7 +32,7 @@
     --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
     --col: 640px;
-    --pad-x: clamp(24px, 5vw, 56px);
+    --pad-x: clamp(18px, 5vw, 56px);
   }
 
   /* Widen the column on larger viewports so desktop doesn't feel cramped.
@@ -588,6 +588,12 @@
   /* ───── Responsive ───── */
   @media (max-width: 560px) {
     body { font-size: 17px; }
+    /* Bring prose down to match the body's mobile size so 18px text
+       doesn't underfill the narrow column compared to the 14.5px
+       entry notes beside it. Slightly tighter line-height keeps the
+       rhythm comfortable at the smaller size. */
+    .prose { font-size: 17px; line-height: 1.6; }
+    .project-desc { font-size: 16px; }
     ul.entries > li,
     .index-row { grid-template-columns: 72px 1fr; gap: 16px; }
   }
