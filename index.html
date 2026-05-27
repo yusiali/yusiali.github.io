@@ -344,14 +344,6 @@
     line-height: 1.7;
     color: var(--ink-soft);
     max-width: 36em;
-    /* Allow long compound words ("neuroengineering", "Paradromics",
-       "electrophysiology") to hyphenate so lines fill closer to the
-       column's right edge instead of breaking early and leaving
-       ragged whitespace. Conservative thresholds keep hyphenation
-       from chopping short words. */
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    hyphenate-limit-chars: 9 5 4;
   }
   .prose a { border-color: var(--muted-2); }
 
@@ -542,9 +534,6 @@
     line-height: 1.55;
     max-width: 34em;
     margin: 0;
-    hyphens: auto;
-    -webkit-hyphens: auto;
-    hyphenate-limit-chars: 9 5 4;
   }
   .project-meta {
     grid-column: 2 / 3;
