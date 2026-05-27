@@ -1,0 +1,1082 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Yusuf Ali</title>
+<meta name="description" content="Yusuf Ali — neurotech, signal processing, philosophy." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://use.typekit.net/xgb6tqt.css" />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..500;1,6..72,200..500&family=Instrument+Serif:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+<!--
+  Adobe Fonts kit xgb6tqt: abril, ogg, drummond.
+  If the family names below don't resolve, replace with the exact CSS family
+  names listed on the kit's Adobe Fonts page ("font-family stack" section).
+-->
+
+<style>
+  :root {
+    --paper: #F7F5F0;
+    --paper-deep: #EDEAE1;
+    --ink: #1A1A1A;
+    --ink-soft: #2E2D2A;
+    --muted: #8A8780;
+    --muted-2: #B6B2A7;
+    --rule: #D8D4C8;
+    --accent: #1A1A1A;
+
+    --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+    --serif-display: "Instrument Serif", "Newsreader", "Iowan Old Style", Georgia, serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    --col: 640px;
+    --pad-x: clamp(24px, 5vw, 56px);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); }
+
+  body {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.62;
+    font-feature-settings: "kern", "liga", "calt";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Optical size hint where supported */
+    font-variation-settings: "opsz" 14;
+  }
+
+  ::selection { background: #1A1A1A; color: var(--paper); }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+    transition: opacity 240ms cubic-bezier(0.16, 1, 0.3, 1), border-color 240ms;
+  }
+  a:hover { opacity: 0.55; }
+
+  /* ───── Layout ───── */
+  .page {
+    max-width: var(--col);
+    margin: 0 auto;
+    padding: 0 var(--pad-x);
+  }
+
+  /* ───── Header / Nav ───── */
+  .site-header {
+    padding: clamp(28px, 5vh, 48px) var(--pad-x) 0;
+    max-width: var(--col);
+    margin: 0 auto;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  .brand {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    text-transform: lowercase;
+    border: none;
+  }
+  .brand:hover { opacity: 0.55; color: var(--ink); }
+  .brand .dot {
+    display: inline-block; width: 5px; height: 5px;
+    background: var(--ink); border-radius: 50%;
+    margin-right: 8px; transform: translateY(-2px);
+  }
+  nav.primary {
+    display: flex; gap: 28px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+  nav.primary a {
+    border: none;
+    color: var(--muted);
+    text-transform: lowercase;
+    position: relative;
+  }
+  nav.primary a::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -4px;
+    height: 1px;
+    background: var(--ink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  nav.primary a:hover { opacity: 1; color: var(--ink); }
+  nav.primary a:hover::after,
+  nav.primary a.active::after { transform: scaleX(1); }
+  nav.primary a.active { color: var(--ink); }
+
+  /* ───── Route system ───── */
+  .route {
+    display: none;
+    padding-block: clamp(56px, 10vh, 112px) 96px;
+  }
+  .route.active { display: block; }
+  @media (prefers-reduced-motion: reduce) {
+    a { transition: none; }
+  }
+
+  /* ───── Typography ───── */
+  h1.name {
+    font-family: var(--serif-display);
+    font-weight: 400;
+    font-size: clamp(36px, 5.2vw, 50px);
+    letter-spacing: -0.012em;
+    line-height: 1.04;
+    margin: 0 0 24px;
+  }
+  h1.name em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ink);
+  }
+  h1.page-title {
+    font-family: var(--serif-display);
+    font-weight: 400;
+    font-size: clamp(30px, 4vw, 40px);
+    letter-spacing: -0.008em;
+    line-height: 1.08;
+    margin: 0 0 20px;
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  /* Avatar on home */
+  .avatar {
+    display: block;
+    width: 92px;
+    height: 92px;
+    border-radius: 6px;
+    object-fit: cover;
+    margin: 0 0 28px;
+    filter: saturate(0.92);
+  }
+
+  .lede {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-variation-settings: "opsz" 18;
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0 0 8px;
+    max-width: 30em;
+    text-wrap: pretty;
+  }
+  .lede em { font-style: italic; color: var(--ink); }
+  .lede-lead { color: var(--ink); font-weight: 400; }
+  .lede-trail {
+    color: rgb(89, 89, 83);
+    font-style: italic;
+    display: block;
+    margin-top: 4px;
+  }
+
+  h2.section {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: lowercase;
+    letter-spacing: 0.16em;
+    color: var(--muted);
+    margin: 0 0 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  h2.section::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+  body[data-tweak-rules="off"] h2.section::after { display: none; }
+  body[data-tweak-avatar="off"] .avatar { display: none; }
+  body[data-tweak-title-style="upright"] h1.page-title { font-style: normal; }
+
+  /* Hero / page-title font auditions */
+  body[data-tweak-hero-font="editorial"] { --serif-display: "Instrument Serif", "Newsreader", Georgia, serif; }
+  body[data-tweak-hero-font="classical"] { --serif-display: "Cormorant Garamond", "Newsreader", Georgia, serif; }
+  body[data-tweak-hero-font="match"]     { --serif-display: "Newsreader", "Iowan Old Style", Georgia, serif; }
+  body[data-tweak-hero-font="classical"] h1.page-title { font-weight: 400; letter-spacing: -0.004em; }
+  body[data-tweak-hero-font="match"] h1.page-title { font-weight: 300; font-variation-settings: "opsz" 36; }
+
+  /* Adobe Fonts (kit xgb6tqt) — light-weight display tests */
+  body[data-tweak-hero-font="abril"]    { --serif-display: "abril-display", "Newsreader", Georgia, serif; }
+  body[data-tweak-hero-font="ogg"]      { --serif-display: "ogg", "Newsreader", Georgia, serif; }
+  body[data-tweak-hero-font="drummond"] { --serif-display: "drummond", "Newsreader", Georgia, serif; }
+
+  body[data-tweak-hero-font="abril"] h1.page-title,
+  body[data-tweak-hero-font="ogg"] h1.page-title,
+  body[data-tweak-hero-font="drummond"] h1.page-title {
+    font-weight: 300;
+    font-size: clamp(36px, 5vw, 50px);
+    letter-spacing: -0.012em;
+    line-height: 1.05;
+  }
+  body[data-tweak-hero-font="drummond"] h1.page-title {
+    font-variation-settings: "wght" 320, "opsz" 36;
+    letter-spacing: -0.006em;
+  }
+
+  /* Header brand swap — when an Adobe display family is active, the
+     header name picks it up too so the typographic identity moves together. */
+  body[data-tweak-hero-font="abril"] .brand,
+  body[data-tweak-hero-font="ogg"] .brand,
+  body[data-tweak-hero-font="drummond"] .brand {
+    font-family: var(--serif-display);
+    font-weight: 300;
+    letter-spacing: -0.004em;
+    color: var(--ink);
+    text-transform: none;
+    line-height: 1;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  body[data-tweak-hero-font="abril"] .brand { font-size: 22px; }
+  body[data-tweak-hero-font="ogg"] .brand   { font-size: 22px; }
+  body[data-tweak-hero-font="drummond"] .brand {
+    font-size: clamp(24px, 3vw, 30px);
+    font-variation-settings: "wght" 320;
+  }
+  /* Drop the indicator dot in serif modes — the name carries the weight on its own */
+  body[data-tweak-hero-font="abril"] .brand .dot,
+  body[data-tweak-hero-font="ogg"] .brand .dot,
+  body[data-tweak-hero-font="drummond"] .brand .dot {
+    display: none;
+  }
+
+  /* When the header carries the hero name, tighten the home route's top
+     padding so the avatar feels like a continuation of the masthead. */
+  body[data-tweak-hero-font="abril"] #home.route,
+  body[data-tweak-hero-font="ogg"] #home.route,
+  body[data-tweak-hero-font="drummond"] #home.route {
+    padding-block-start: clamp(28px, 5vh, 56px);
+  }
+  /* When the header carries the hero name (serif modes), center the
+     nav optically against the larger brand rather than baselining it —
+     baseline alignment makes the small nav text look like it's sinking. */
+  body[data-tweak-hero-font="abril"] .site-header,
+  body[data-tweak-hero-font="ogg"] .site-header,
+  body[data-tweak-hero-font="drummond"] .site-header {
+    align-items: center;
+  }
+  body[data-tweak-hero-font="abril"] nav.primary,
+  body[data-tweak-hero-font="ogg"] nav.primary,
+  body[data-tweak-hero-font="drummond"] nav.primary {
+    font-size: 13px;
+    gap: 32px;
+  }
+
+  p { margin: 0 0 1em; text-wrap: pretty; }
+  p:last-child { margin-bottom: 0; }
+  em { font-style: italic; }
+
+  .block { margin: 0 0 clamp(56px, 9vh, 88px); }
+  .block:last-child { margin-bottom: 0; }
+
+  /* ───── Home — about prose ───── */
+  .prose {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 36em;
+  }
+  .prose a { border-color: var(--muted-2); }
+
+  .reading {
+    margin-top: 22px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+  .reading a { border-color: var(--rule); color: var(--ink-soft); }
+  .reading .label { display: inline-block; margin-right: 8px; color: var(--muted-2); }
+
+  /* ───── Experience list ───── */
+  ul.entries {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  ul.entries > li {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    align-items: baseline;
+    gap: 24px;
+    padding: 0;
+    border: none;
+  }
+  .entry-year {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    padding-top: 4px;
+  }
+  .entry-body { display: flex; flex-direction: column; gap: 2px; }
+  .entry-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+  .entry-title em { color: var(--muted); font-style: italic; font-weight: 300; }
+  .entry-org {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--muted);
+    font-size: 16px;
+  }
+  .entry-notes {
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .entry-notes li {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    padding: 0;
+    border: none;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 6px;
+    align-items: baseline;
+  }
+  .entry-notes li::before {
+    content: "—"; /* em dash */
+    color: var(--muted-2);
+    font-size: 14.5px;
+    line-height: 1.5;
+  }
+
+  /* ───── Writings index ───── */
+  .index-list { list-style: none; margin: 0; padding: 0; }
+  .index-list li {
+    border-top: 1px solid var(--rule);
+    padding: 22px 0;
+  }
+  .index-list li:last-child { border-bottom: 1px solid var(--rule); }
+  .index-row {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    align-items: baseline;
+    gap: 24px;
+  }
+  .index-date {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    padding-top: 6px;
+  }
+  .index-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-variation-settings: "opsz" 24;
+    font-size: 22px;
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+    color: var(--ink);
+    border: none;
+    display: inline-block;
+  }
+  .index-title:hover { opacity: 1; color: var(--muted); }
+  .index-desc {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--muted);
+    margin-top: 4px;
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 34em;
+  }
+
+  .empty-state {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--muted);
+    padding: 32px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  /* ───── Projects ───── */
+  .project { padding: 36px 0; border-top: 1px solid var(--rule); }
+  .project:last-child { border-bottom: 1px solid var(--rule); }
+  .project-head {
+    display: grid;
+    grid-template-columns: 92px 1fr auto;
+    gap: 24px;
+    align-items: baseline;
+    margin-bottom: 10px;
+  }
+  .project-image {
+    grid-column: 2 / 3;
+    margin: 18px 0 4px;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: center;
+    background: var(--paper-deep);
+    border-radius: 4px;
+    filter: saturate(0.92);
+    transition: filter 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .project:hover .project-image { filter: saturate(1); }
+  .project-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .project-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-variation-settings: "opsz" 30;
+    font-size: 26px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0;
+  }
+  .project-year {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .project-desc {
+    grid-column: 2 / 3;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.55;
+    max-width: 34em;
+    margin: 0;
+  }
+  .project-meta {
+    grid-column: 2 / 3;
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+  .project-meta a { border-bottom-color: var(--rule); color: var(--ink-soft); }
+  .project-meta .tag::before { content: "—"; margin-right: 8px; color: var(--muted-2); }
+  .project-meta .tag { color: var(--muted); }
+
+  /* ───── Footer ───── */
+  footer.site-footer {
+    max-width: var(--col);
+    margin: 0 auto;
+    padding: 24px var(--pad-x) 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    border-top: 1px solid var(--rule);
+    margin-top: clamp(48px, 8vh, 96px);
+  }
+  footer.site-footer .socials { display: flex; gap: 22px; }
+  footer.site-footer a {
+    border: none;
+    color: var(--muted);
+    text-transform: lowercase;
+  }
+  footer.site-footer a:hover { color: var(--ink); opacity: 1; }
+
+  /* ───── Responsive ───── */
+  @media (max-width: 560px) {
+    body { font-size: 17px; }
+    ul.entries > li,
+    .index-row { grid-template-columns: 72px 1fr; gap: 16px; }
+    .project-head {
+      grid-template-columns: 1fr auto;
+      gap: 12px 16px;
+    }
+    .project-num {
+      grid-column: 1 / -1;
+      margin-bottom: 4px;
+    }
+    .project-title { grid-column: 1 / 2; }
+    .project-year  { grid-column: 2 / 3; }
+    .project-desc,
+    .project-meta,
+    .project-image { grid-column: 1 / -1; }
+    h2.section { font-size: 11px; }
+    .avatar { width: 76px; height: 76px; margin-bottom: 22px; }
+    footer.site-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+  }
+
+  /* ───── Tweaks panel ───── */
+  #tweaks {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 264px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    box-shadow: 0 12px 36px rgba(20, 18, 12, 0.08), 0 2px 6px rgba(20, 18, 12, 0.04);
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-soft);
+    z-index: 9999;
+    overflow: hidden;
+  }
+  #tweaks[hidden] { display: none; }
+  #tweaks .tp-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--rule);
+    text-transform: lowercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+  #tweaks .tp-close {
+    background: none;
+    border: none;
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 0 4px;
+    line-height: 1;
+  }
+  #tweaks .tp-close:hover { color: var(--ink); }
+  #tweaks .tp-body { padding: 6px 0; }
+  #tweaks .tp-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    gap: 12px;
+  }
+  #tweaks .tp-row + .tp-row { border-top: 1px dashed var(--rule); }
+  #tweaks .tp-label {
+    text-transform: lowercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  /* toggle */
+  #tweaks .tp-toggle {
+    appearance: none;
+    width: 32px; height: 18px;
+    border-radius: 999px;
+    background: var(--rule);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition: background 200ms;
+    flex-shrink: 0;
+  }
+  #tweaks .tp-toggle::after {
+    content: "";
+    position: absolute;
+    top: 2px; left: 2px;
+    width: 14px; height: 14px;
+    background: var(--paper);
+    border-radius: 50%;
+    transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  }
+  #tweaks .tp-toggle[aria-pressed="true"] { background: var(--ink); }
+  #tweaks .tp-toggle[aria-pressed="true"]::after { transform: translateX(14px); }
+  /* segmented */
+  #tweaks .tp-seg {
+    display: inline-flex;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  #tweaks .tp-seg button {
+    appearance: none;
+    background: transparent;
+    border: none;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.04em;
+    text-transform: lowercase;
+    color: var(--muted);
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: background 160ms, color 160ms;
+  }
+  #tweaks .tp-seg button + button { border-left: 1px solid var(--rule); }
+  #tweaks .tp-seg button[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  #tweaks .tp-seg button:hover:not([aria-pressed="true"]) { color: var(--ink); }
+  /* wrapping segmented (for long option lists) */
+  #tweaks .tp-row:has(.tp-seg-wrap) { align-items: flex-start; }
+  #tweaks .tp-seg-wrap { flex-wrap: wrap; max-width: 240px; justify-content: flex-end; }
+  #tweaks .tp-seg-wrap button + button { border-left: none; }
+  #tweaks .tp-seg-wrap button { border-left: 1px solid var(--rule); }
+  #tweaks .tp-seg-wrap button:first-child { border-left: none; }
+
+  @media (max-width: 560px) {
+    #tweaks { right: 12px; bottom: 12px; left: 12px; width: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" data-screen-label="Header">
+  <a class="brand" href="#/" data-link><span class="dot"></span>yusuf ali</a>
+  <nav class="primary" aria-label="Primary">
+    <a href="#/writings" data-link data-route="writings">writings</a>
+    <a href="#/projects" data-link data-route="projects">projects</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ───────────────────────────── HOME ───────────────────────────── -->
+  <section id="home" class="route page" data-screen-label="01 Home">
+
+    <div class="block">
+      <img class="avatar" src="assets/headshot-sm.jpg" alt="Yusuf Ali" width="92" height="92" />
+      <p class="lede"><span class="lede-lead">CS and neuroscience at Texas A&amp;M.</span> <span class="lede-trail">Interested in neural interfaces and assistive tech.</span></p>
+    </div>
+
+    <div class="block">
+      <h2 class="section">about</h2>
+      <div class="prose">
+        <p>I'm drawn to the question of how we read intent from the body and build systems that adapt to people rather than asking people to adapt to them. That question sits at the crossroads of human-centered design and engineering, and right now it leads me to neurotech.</p>
+        <p>In 2025 I joined Paradromics as a neuroengineering intern, where I work on neural data transmission and the experimental rig for the Connexus® BCI platform, focused on restoring speech and device control for people with motor conditions. More recently I co-founded ExG Labs, where we're building assistive neural interfaces for people with motor impairments.</p>
+        <p>Outside of engineering I think a lot about the philosophy behind what we build and how technology reshapes human agency, something I believe should sit at the core of any meaningful technical work.</p>
+        <p class="reading">
+          <span class="label">currently reading</span>
+          <a href="https://www.goodreads.com/book/show/51893.Thus_Spoke_Zarathustra" target="_blank" rel="noopener"><em>Thus Spoke Zarathustra</em></a>
+        </p>
+      </div>
+    </div>
+
+    <div class="block">
+      <h2 class="section">now</h2>
+      <ul class="entries" id="experience-now"></ul>
+    </div>
+
+    <div class="block">
+      <h2 class="section">previously</h2>
+      <ul class="entries" id="experience-previously"></ul>
+    </div>
+
+  </section>
+
+  <!-- ───────────────────────────── WRITINGS ───────────────────────────── -->
+  <section id="writings" class="route page" data-screen-label="02 Writings">
+    <div class="block">
+      <h1 class="page-title">Writings</h1>
+      <p class="lede" style="font-family: Newsreader; text-align: left">Things I'm thinking through. Neurotech, philosophy, and the questions that sit underneath both.</p>
+    </div>
+    <div class="block">
+      <ul class="index-list" id="writings-list"></ul>
+    </div>
+  </section>
+
+  <!-- ───────────────────────────── PROJECTS ───────────────────────────── -->
+  <section id="projects" class="route page" data-screen-label="03 Projects">
+    <div class="block">
+      <h1 class="page-title">Projects</h1>
+      <p class="lede">Things I've built. Most of them hardware, most of them close to the body.</p>
+    </div>
+    <div class="block">
+      <div id="projects-list"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div>© <span id="year"></span> yusuf ali</div>
+  <div class="socials">
+    <a href="mailto:yusi.ali3@gmail.com">email</a>
+    <a href="https://github.com/yusiali" target="_blank" rel="noopener">github</a>
+    <a href="https://www.linkedin.com/in/yusiali/" target="_blank" rel="noopener">linkedin</a>
+  </div>
+</footer>
+
+<!--
+   ═══════════════════════════════════════════════════════════════════
+   CONTENT
+   To add a new writing, append an object to the `writings` array below.
+   Keep newest first. Format dates as "YYYY.MM" (e.g. "2026.04").
+   `slug` is optional — if present it should link to a real essay page.
+   ═══════════════════════════════════════════════════════════════════
+-->
+<script>
+  /* ─────────── Writings ─────────── */
+  const writings = [
+    {
+      title: "40 Years in Bhopal",
+      date: "Dec 2024",
+      desc: "Forty years after the deadliest industrial disaster in history — corporate negligence, an uncounted death toll, and the long work of justice still underway.",
+      url: "essays/40-years-in-bhopal.html",
+    },
+  ];
+
+  /* ─────────── Experience ─────────── */
+  const experienceNow = [
+    {
+      year: "Since 2025",
+      title: "Neuroengineering Intern",
+      org: "Paradromics",
+      notes: [
+        "Running electrophysiology experiments and working on neural data transmission for the Connexus® BCI platform.",
+      ],
+    },
+    {
+      // TODO: confirm role + dates for ExG Labs
+      year: "Since 2026",
+      title: "Co-founder",
+      org: "ExG Labs",
+      notes: [
+        "Developing assistive neural interfaces to redefine how people with motor impairments interact with their devices.",
+      ],
+    },
+    {
+      year: "2023 — 27",
+      title: "B.S. Computer Science, minor in Neuroscience",
+      org: "Texas A&M University",
+      notes: [
+        "Involved with the Student Engineers' Council and the Meloy Entrepreneurship Program.",
+      ],
+    },
+  ];
+
+  const experiencePreviously = [
+    {
+      year: "2024 — 25",
+      title: "Founder & Software Lead",
+      org: "AggiesBCI",
+      notes: [
+        "Led a team to build a universal e-wheelchair module controlled by EEG-based mental commands. First place at the Aggies Create Innovation Expo.",
+      ],
+    },
+  ];
+
+  /* ─────────── Projects ─────────── */
+  const projects = [
+    {
+      title: "AggiesBCI",
+      year: "2024",
+      desc: "A brain-controlled wheelchair that translates trained mental commands into real-world movement. 1st place at the Aggies Create Innovation Expo.",
+      image: "assets/projects/aggiesbci.jpg",
+      imagePosition: "center 72%",
+      meta: [
+        { label: "EMOTIV Insight · Arduino · Python", kind: "tag" },
+      ],
+    },
+    {
+      title: "Nixie Tube Watch",
+      year: "2023",
+      desc: "A wristwatch built around cathode-ray Nixie tubes from the 1950s. Custom PCB, Qi wireless charging, resin case, time logic in C.",
+      image: "assets/projects/nixie.jpg",
+      meta: [
+        { label: "PCB design · firmware · C", kind: "tag" },
+        { label: "video", url: "https://www.youtube.com/watch?v=iHFu8EpVipM" },
+      ],
+    },
+    {
+      title: "MNIST from scratch",
+      year: "2023",
+      desc: "A neural network written from scratch in NumPy — mini-batch gradient descent with momentum, 98% precision after 20 epochs.",
+      image: "assets/projects/mnist.gif",
+      meta: [
+        { label: "NumPy · no frameworks", kind: "tag" },
+        { label: "code", url: "https://github.com/yusiali" },
+      ],
+    },
+    {
+      title: "Obscure",
+      year: "2022",
+      desc: "A 2D roguelike I made for my brother — procedural rooms, hand-pixeled sprites, all the rough edges of a first game.",
+      image: "assets/projects/obscure.jpg",
+      meta: [
+        { label: "Unity · C#", kind: "tag" },
+        { label: "github", url: "https://github.com/yusiali/obscureGame" },
+      ],
+    },
+  ];
+
+  /* ─────────── Rendering ─────────── */
+  const $ = (sel) => document.querySelector(sel);
+  const escapeHtml = (s) => String(s).replace(/[&<>"']/g, c => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"
+  }[c]));
+
+  function renderEntries(targetId, entries) {
+    const el = document.getElementById(targetId);
+    if (!el) return;
+    el.innerHTML = entries.map(e => {
+      const notesHtml = (e.notes && e.notes.length)
+        ? `<ul class="entry-notes">${e.notes.map(n => `<li><span>${escapeHtml(n)}</span></li>`).join("")}</ul>`
+        : "";
+      return `
+      <li>
+        <div class="entry-year">${escapeHtml(e.year)}</div>
+        <div class="entry-body">
+          <div class="entry-title">${escapeHtml(e.title)}</div>
+          <div class="entry-org">${escapeHtml(e.org)}</div>
+          ${notesHtml}
+        </div>
+      </li>
+    `;}).join("");
+  }
+
+  function renderWritings() {
+    const el = $("#writings-list");
+    if (!writings.length) {
+      el.outerHTML = `<div class="empty-state">No essays published yet — the first is coming soon.</div>`;
+      return;
+    }
+    el.innerHTML = writings.map(w => {
+      const titleHtml = w.url
+        ? `<a class="index-title" href="${escapeHtml(w.url)}">${escapeHtml(w.title)}</a>`
+        : `<span class="index-title">${escapeHtml(w.title)}</span>`;
+      return `
+        <li>
+          <div class="index-row">
+            <div class="index-date">${escapeHtml(w.date || "")}</div>
+            <div>
+              ${titleHtml}
+              ${w.desc ? `<div class="index-desc">${escapeHtml(w.desc)}</div>` : ""}
+            </div>
+          </div>
+        </li>
+      `;
+    }).join("");
+  }
+
+  function renderProjects() {
+    const el = $("#projects-list");
+    el.innerHTML = projects.map((p, i) => {
+      const num = String(i + 1).padStart(2, "0");
+      const metaHtml = (p.meta || []).map(m => {
+        if (m.url) return `<a href="${escapeHtml(m.url)}" target="_blank" rel="noopener">${escapeHtml(m.label)} ↗</a>`;
+        return `<span class="tag">${escapeHtml(m.label)}</span>`;
+      }).join("");
+      const imageHtml = p.image
+        ? `<img class="project-image" src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}" loading="lazy"${p.imagePosition ? ` style="object-position:${escapeHtml(p.imagePosition)}"` : ""} />`
+        : "";
+      return `
+        <article class="project">
+          <div class="project-head">
+            <div class="project-num">${num}</div>
+            <h3 class="project-title">${escapeHtml(p.title)}</h3>
+            <div class="project-year">${escapeHtml(p.year)}</div>
+            <p class="project-desc">${escapeHtml(p.desc)}</p>
+            ${imageHtml}
+            ${metaHtml ? `<div class="project-meta">${metaHtml}</div>` : ""}
+          </div>
+        </article>
+      `;
+    }).join("");
+  }
+
+  /* ─────────── Hash routing ─────────── */
+  function setRoute() {
+    const hash = (location.hash || "#/").replace(/^#\/?/, "");
+    const key = hash || "home";
+    const map = { "": "home", "home": "home", "writings": "writings", "projects": "projects" };
+    const target = map[key] || "home";
+
+    document.querySelectorAll(".route").forEach(r => {
+      r.classList.toggle("active", r.id === target);
+    });
+    document.querySelectorAll("nav.primary a").forEach(a => {
+      a.classList.toggle("active", a.dataset.route === target);
+    });
+
+    // Reset scroll on route change so each "page" feels like its own surface
+    window.scrollTo({ top: 0, behavior: "instant" in window ? "instant" : "auto" });
+    document.title = target === "home"
+      ? "Yusuf Ali"
+      : `Yusuf Ali — ${target}`;
+  }
+
+  window.addEventListener("hashchange", setRoute);
+
+  /* ─────────── Init ─────────── */
+  renderEntries("experience-now", experienceNow);
+  renderEntries("experience-previously", experiencePreviously);
+  renderWritings();
+  renderProjects();
+  setRoute();
+  $("#year").textContent = new Date().getFullYear();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     Tweaks panel — hidden until toggled from the toolbar
+     ═══════════════════════════════════════════════════════════════════ -->
+<aside id="tweaks" hidden aria-label="Tweaks">
+  <div class="tp-head">
+    <span>tweaks</span>
+    <button class="tp-close" type="button" aria-label="Close">×</button>
+  </div>
+  <div class="tp-body">
+    <div class="tp-row">
+      <span class="tp-label">section rules</span>
+      <button class="tp-toggle" type="button" data-tweak-key="rules" aria-pressed="false"></button>
+    </div>
+    <div class="tp-row">
+      <span class="tp-label">home avatar</span>
+      <button class="tp-toggle" type="button" data-tweak-key="avatar" aria-pressed="true"></button>
+    </div>
+    <div class="tp-row">
+      <span class="tp-label">page titles</span>
+      <div class="tp-seg" data-tweak-key="titleStyle">
+        <button type="button" data-value="italic">italic</button>
+        <button type="button" data-value="upright">upright</button>
+      </div>
+    </div>
+    <div class="tp-row">
+      <span class="tp-label">hero font</span>
+      <div class="tp-seg tp-seg-wrap" data-tweak-key="heroFont">
+        <button type="button" data-value="editorial">editorial</button>
+        <button type="button" data-value="classical">classical</button>
+        <button type="button" data-value="match">match</button>
+        <button type="button" data-value="abril">abril</button>
+        <button type="button" data-value="ogg">ogg</button>
+        <button type="button" data-value="drummond">drummond</button>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<script>
+  /* ─────────── Tweaks ─────────── */
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "rules": false,
+    "avatar": true,
+    "titleStyle": "upright",
+    "heroFont": "drummond"
+  }/*EDITMODE-END*/;
+
+  const tweakState = { ...TWEAK_DEFAULTS };
+
+  const tweaksEl = document.getElementById("tweaks");
+
+  function applyTweaks() {
+    const body = document.body;
+    body.dataset.tweakRules = tweakState.rules ? "on" : "off";
+    body.dataset.tweakAvatar = tweakState.avatar ? "on" : "off";
+    body.dataset.tweakTitleStyle = tweakState.titleStyle;
+    body.dataset.tweakHeroFont = tweakState.heroFont;
+  }
+
+  function syncControls() {
+    // toggles
+    tweaksEl.querySelectorAll(".tp-toggle").forEach(btn => {
+      const key = btn.dataset.tweakKey;
+      btn.setAttribute("aria-pressed", tweakState[key] ? "true" : "false");
+    });
+    // segmented
+    tweaksEl.querySelectorAll(".tp-seg").forEach(seg => {
+      const key = seg.dataset.tweakKey;
+      seg.querySelectorAll("button").forEach(b => {
+        b.setAttribute("aria-pressed", b.dataset.value === tweakState[key] ? "true" : "false");
+      });
+    });
+  }
+
+  function setTweak(key, value) {
+    tweakState[key] = value;
+    applyTweaks();
+    syncControls();
+    try {
+      window.parent.postMessage(
+        { type: "__edit_mode_set_keys", edits: { [key]: value } },
+        "*"
+      );
+    } catch (e) { /* not in a host */ }
+  }
+
+  // wire controls
+  tweaksEl.querySelectorAll(".tp-toggle").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const key = btn.dataset.tweakKey;
+      setTweak(key, !tweakState[key]);
+    });
+  });
+  tweaksEl.querySelectorAll(".tp-seg button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const key = btn.parentElement.dataset.tweakKey;
+      setTweak(key, btn.dataset.value);
+    });
+  });
+  tweaksEl.querySelector(".tp-close").addEventListener("click", () => {
+    tweaksEl.hidden = true;
+    try { window.parent.postMessage({ type: "__edit_mode_dismissed" }, "*"); } catch (e) {}
+  });
+
+  // Apply defaults immediately so the page reflects them at load
+  applyTweaks();
+  syncControls();
+
+  // Host messaging — register listener BEFORE announcing
+  window.addEventListener("message", (e) => {
+    const data = e.data;
+    if (!data || typeof data !== "object") return;
+    if (data.type === "__activate_edit_mode") {
+      tweaksEl.hidden = false;
+    } else if (data.type === "__deactivate_edit_mode") {
+      tweaksEl.hidden = true;
+    }
+  });
+
+  try {
+    window.parent.postMessage({ type: "__edit_mode_available" }, "*");
+  } catch (e) {}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>40 Years in Bhopal — Yusuf Ali</title>
+<meta name="description" content="On the 40th anniversary of the Union Carbide gas tragedy in Bhopal — corporate negligence, uncounted lives, and the long work of justice." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..500;1,6..72,200..500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --paper: #F7F5F0;
+    --paper-deep: #EDEAE1;
+    --ink: #1A1A1A;
+    --ink-soft: #2E2D2A;
+    --muted: #8A8780;
+    --muted-2: #B6B2A7;
+    --rule: #D8D4C8;
+    --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --col: 640px;
+    --pad-x: clamp(24px, 5vw, 56px);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); }
+  body {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.7;
+    font-feature-settings: "kern", "liga", "calt";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection { background: #1A1A1A; color: var(--paper); }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1px;
+    transition: opacity 240ms cubic-bezier(0.16, 1, 0.3, 1), border-color 240ms;
+  }
+  a:hover { opacity: 0.6; }
+
+  /* ───── Header ───── */
+  .site-header {
+    padding: clamp(28px, 5vh, 48px) var(--pad-x) 0;
+    max-width: var(--col);
+    margin: 0 auto;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  .brand {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    text-transform: lowercase;
+    border: none;
+  }
+  .brand:hover { color: var(--ink); opacity: 0.6; }
+  .brand .dot {
+    display: inline-block; width: 5px; height: 5px;
+    background: var(--ink); border-radius: 50%;
+    margin-right: 8px; transform: translateY(-2px);
+  }
+  nav.primary { display: flex; gap: 28px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; }
+  nav.primary a {
+    border: none;
+    color: var(--muted);
+    text-transform: lowercase;
+    position: relative;
+  }
+  nav.primary a::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -4px;
+    height: 1px;
+    background: var(--ink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  nav.primary a:hover { color: var(--ink); opacity: 1; }
+  nav.primary a:hover::after,
+  nav.primary a.active::after { transform: scaleX(1); }
+  nav.primary a.active { color: var(--ink); }
+
+  /* ───── Article ───── */
+  article.essay {
+    max-width: var(--col);
+    margin: 0 auto;
+    padding: clamp(48px, 8vh, 96px) var(--pad-x) 96px;
+  }
+
+  .back-link {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    text-transform: lowercase;
+    border: none;
+    display: inline-block;
+    margin-bottom: 48px;
+  }
+  .back-link:hover { color: var(--ink); }
+  .back-link .arrow { display: inline-block; margin-right: 6px; }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    text-transform: lowercase;
+    margin: 0 0 18px;
+  }
+  .eyebrow .sep { display: inline-block; margin: 0 10px; color: var(--muted-2); }
+
+  h1.title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-variation-settings: "opsz" 60;
+    font-size: clamp(36px, 5.4vw, 52px);
+    line-height: 1.06;
+    letter-spacing: -0.018em;
+    margin: 0 0 40px;
+    text-wrap: balance;
+  }
+
+  figure {
+    margin: 36px 0 36px;
+  }
+  figure img {
+    width: 100%;
+    display: block;
+    border-radius: 3px;
+    background: var(--paper-deep);
+  }
+  figure figcaption {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--muted);
+    margin-top: 12px;
+    max-width: 36em;
+    text-wrap: pretty;
+  }
+  figure figcaption .credit {
+    font-style: normal;
+    color: var(--muted-2);
+    font-size: 12px;
+    margin-left: 4px;
+  }
+
+  blockquote.epigraph {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-variation-settings: "opsz" 22;
+    font-size: clamp(18px, 2vw, 20px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 40px 0;
+    padding: 0;
+    border: none;
+    max-width: 34em;
+    text-wrap: pretty;
+  }
+  blockquote.epigraph cite {
+    display: block;
+    margin-top: 14px;
+    font-style: normal;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-transform: lowercase;
+  }
+
+  blockquote.pullquote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-variation-settings: "opsz" 24;
+    font-size: clamp(19px, 2.1vw, 22px);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 36px 0 36px 0;
+    padding: 4px 0 4px 24px;
+    border: none;
+    border-left: 1px solid var(--rule);
+    max-width: 34em;
+    text-wrap: pretty;
+  }
+  blockquote.pullquote cite {
+    display: block;
+    margin-top: 14px;
+    font-style: normal;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-transform: lowercase;
+  }
+
+  .prose p {
+    margin: 0 0 1.25em;
+    text-wrap: pretty;
+    color: var(--ink-soft);
+  }
+  .prose p:first-of-type::first-line {
+    /* keep simple — no small caps here */
+  }
+  .prose a { color: var(--ink); border-color: var(--rule); }
+
+  /* ───── Footer ───── */
+  footer.site-footer {
+    max-width: var(--col);
+    margin: 0 auto;
+    padding: 24px var(--pad-x) 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    border-top: 1px solid var(--rule);
+  }
+  footer.site-footer .socials { display: flex; gap: 22px; }
+  footer.site-footer a { border: none; color: var(--muted); text-transform: lowercase; }
+  footer.site-footer a:hover { color: var(--ink); opacity: 1; }
+
+  @media (max-width: 560px) {
+    body { font-size: 17px; line-height: 1.65; }
+    h1.title { margin-bottom: 32px; }
+    figure { margin: 28px 0; }
+    footer.site-footer {
+      flex-direction: column; align-items: flex-start; gap: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="../index.html"><span class="dot"></span>yusuf ali</a>
+  <nav class="primary" aria-label="Primary">
+    <a href="../index.html#/writings" class="active">writings</a>
+    <a href="../index.html#/projects">projects</a>
+  </nav>
+</header>
+
+<main>
+  <article class="essay">
+
+    <a class="back-link" href="../index.html#/writings"><span class="arrow">←</span>writings</a>
+
+    <p class="eyebrow">essay <span class="sep">·</span> december 2, 2024</p>
+
+    <h1 class="title">40 Years in Bhopal</h1>
+
+    <figure>
+      <img src="img/hero-cricket.jpg" alt="A child swings a stick inside the broken wall of the Union Carbide compound, with figures running in the fog beyond." loading="eager" />
+      <figcaption>
+        Children playing cricket on a foggy morning inside the compound of the Union Carbide plant in Bhopal.
+        <span class="credit">Photo: RAVEENDRAN / AFP</span>
+      </figcaption>
+    </figure>
+
+    <blockquote class="epigraph">
+      “Whoever fights monsters should see to it that in the process he does not become a monster. And if you gaze long enough into an abyss, the abyss will gaze back into you.”
+      <cite>Friedrich Nietzsche</cite>
+    </blockquote>
+
+    <div class="prose">
+
+      <p>The remains of the Union Carbide pesticide plant lie in the heart of India, within the central state of Madhya Pradesh. Located in its capital city, Bhopal, and across the lake from VIP Road, past the makeshift shacks, bustling street markets, and surrounded by formidable gates guarded by policemen is the site of the worst industrial disaster in history. Yet, these barriers fail to hide its tragic history. Nestled among neighboring slums — fragile <em>kutcha</em> homes made of straw, mud, and bamboo — the factory site has become an eerie playground. Children now play cricket within its crumbling walls, a surreal normalcy that belies the horrors that once unfolded here.</p>
+
+      <p>Four decades have passed since the tragedy that struck Bhopal on the night of December 2nd, 1984. Many residents awoke to a nightmarish scene — burning eyes, choking lungs, and the haunting cries of their neighbors. In their confusion, few suspected the pesticide plant as the source of their suffering; many believed a rogue fire at a nearby spice farm was to blame.</p>
+
+      <p>Unbeknownst to them, the origin of their troubles was in fact the Union Carbide factory. Around 11:00 pm on December 2nd, a faulty pipeline sent over 40 tonnes of methyl isocyanate (MIC) gas into the air. Invisible but deadly, the toxic cloud crept southeast, enveloping the densely populated neighborhoods of Bhopal. Within hours, thousands were gasping for breath, fleeing blindly into the night.</p>
+
+      <figure>
+        <img src="img/map-affected-areas.jpg" alt="A map of Bhopal showing the gas-affected areas radiating southeast from the Union Carbide plant." loading="lazy" />
+        <figcaption>
+          The primary affected areas within Bhopal shortly after the initial gas leak. For nearly 200,000 people — a quarter of the city's population — Bhopal became a gas chamber.
+        </figcaption>
+      </figure>
+
+      <p>The gas blanketed the night skies of Old Bhopal, infiltrating the lungs of all who inhaled the fumes. Once inside the body, it transforms into hydrocyanic acid, attacking the lungs, kidneys, liver, and brain. To escape the burning air, people had no choice but to flee their homes and trek toward New Bhopal, which was farther south but still affected by the leak. Thousands poured into the new city and the main railway station, some dying in the stampede, others being taken by the fumes. The tragedy spared no living being; cattle and pets in nearby farms collapsed, lifeless, victims of the same invisible killer.</p>
+
+      <p>In the case of Chernobyl in 1986, it can be said with certainty that 3 lives were claimed at ground zero, with 28 more casualties caused by acute radiation syndrome within the same year. However, the true toll of lives lost in Bhopal from the Union Carbide gas leak, which occurred just two years earlier, remains uncertain. An official death toll was never made as the Indian government ordered mass burials of victims just days after the night of December 2nd. Early reports suggested over 3,000 fatalities within the first 24 hours, but recent assessments paint a far grimmer picture — over 20,000 lives lost and more than half a million left injured or permanently impaired.</p>
+
+      <p>The effects of the incident extend far beyond the direct casualties, though, as new generations, especially those living near the abandoned plant, continue to suffer. Physical deformities, vision and hearing impairments, and mental health disorders plague many. Specifically, women in the region suffer a higher rate of miscarriages and their children are disproportionately prone to birth defects. These health crises are intensified by the poor living conditions in the nearby slums. The factory itself, though silent, continues to poison its surroundings. Toxic chemicals left on-site leach into groundwater, contaminating the wells that sustain the city's most vulnerable communities today.</p>
+
+      <figure>
+        <img src="img/blindfolded-victims.jpg" alt="A group of survivors sit on a bench, several with cloth blindfolds covering their eyes after being blinded by the gas." loading="lazy" />
+        <figcaption>
+          Victims who lost sight after the Bhopal tragedy, seen on December 4, 1984.
+          <span class="credit">Photo: AFP Files / AFP</span>
+        </figcaption>
+      </figure>
+
+      <p>In 1969, Union Carbide India Limited established its Bhopal factory to produce the pesticide Sevin, using MIC as a key ingredient. India, eager to attract foreign investment, allowed companies like Union Carbide to operate with little to no regulation. Union Carbide marketed Sevin as a safer alternative to DDT, a popular pesticide that became infamous for its impacts on human health and the environment. Sevin's production, however, concealed a darker reality — the process relied on highly toxic gases like phosgene and, of course, MIC. Before Bhopal, Union Carbide's only MIC manufacturing site was in West Virginia, but it was shuttered after recurring leaks in the MIC unit raised safety concerns.</p>
+
+      <p>Union Carbide's negligence at its West Virginia plant foreshadowed the tragedy in Bhopal. In India, weak oversight exacerbated the company's shortcuts. Despite protests from locals and legislators, the factory was built in a densely populated area of Old Bhopal. Safety measures were minimal, and repairs were often handled by undertrained, underpaid contractors. In one case, exposure to phosgene fumes killed one worker during a repair order in 1981. His widow, Sajida Bano, recalls how Union Carbide decided to resolve the situation:</p>
+
+      <blockquote class="pullquote">
+        “Fifty thousand rupees ($1,429) was what the company fixed as the value of my husband's life. I wanted to lodge a police complaint. But the company's local lawyer, who later became a Congress leader, concealed the post-mortem report and bribed the police. I had to look after my sons. So I took the money.”
+        <cite>Sajida Bano</cite>
+      </blockquote>
+
+      <p>Three years later, the MIC leak killed one of her sons and left another crippled.</p>
+
+      <p>By 1982, cracks in Union Carbide's operations at Bhopal were evident, and a U.S. inspection team ordered the destruction of 1.8 tonnes of MIC at the factory due to contamination. As rumors spread about the site's closure, the few skilled technicians and management staff left, replaced by workers from unrelated divisions. In 1983, Union Carbide decided to sell the plant, warning that if a buyer was not found, it would shut down and write off the costs. By December 1984, most of the factory's safety systems, especially in the MIC unit, were defunct, setting the stage for disaster.</p>
+
+      <figure>
+        <img src="img/abandoned-factory.jpg" alt="The corroded structures of the abandoned Union Carbide factory, overtaken by vegetation, with the city of Bhopal visible in the distance." loading="lazy" />
+        <figcaption>
+          Rusting tanks inside the now-abandoned Union Carbide factory compound. The site sits at the center of neighboring slums in Old Bhopal.
+          <span class="credit">Photo: Satish Bate / Hindustan Times</span>
+        </figcaption>
+      </figure>
+
+      <p>Forty years after the Bhopal gas tragedy, social organizations like the <a href="https://bhopal.net/" target="_blank" rel="noopener">International Campaign for Justice in Bhopal</a> (ICJB) remain at the forefront of seeking justice for survivors. Through education, grassroots organizing, and non-violent direct action, ICJB strives to hold Dow Chemical — Union Carbide's parent company — and the Indian government accountable for the ongoing disaster. Partnering with survivor groups and coalition members across India, Canada, the U.S., and the U.K., ICJB amplifies the demands of Bhopalis: criminal prosecution of those responsible, fair compensation for health damages, economic rehabilitation for survivors and their children, and environmental remediation for the contamination that continues to plague the region. As the 40th anniversary of the tragedy approaches, these efforts remind the world that justice for Bhopal remains a pressing cause.</p>
+
+      <p>Individual activists like Rachna Dhingra of the Bhopal Group for Information and Action have been instrumental in driving change in Bhopal since the tragedy of 1984. Dhingra has dedicated her life to exposing corporate negligence and fighting for Bhopal, even risking her freedom and facing jail time for her efforts. Her work is part of a larger network of tireless activists and grassroots organizations that have been advocating for justice and accountability — not just for the victims of the gas leak, but also for future generations impacted by its aftermath. People like Dhingra are necessary in striking change, and I thank her for giving a voice to the voiceless in Bhopal.</p>
+
+      <p>What happened in Bhopal is a story of corporate crime and government negligence. Its aftermath continues to impact thousands of families and their children. If the world learns anything from this disaster, it is that unchecked corporate power and complacent governance can have catastrophic consequences. We must remain vigilant, prioritizing accountability within corporations and governments alike. Only by upholding these principles can we prevent another Bhopal.</p>
+
+      <p>To learn more about the Bhopal gas tragedy and how you can support ongoing justice efforts, visit the <a href="https://bhopal.net/" target="_blank" rel="noopener">ICJB 40th Anniversary page</a>.</p>
+
+    </div>
+
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div>© <span id="year"></span> yusuf ali</div>
+  <div class="socials">
+    <a href="mailto:yusi.ali3@gmail.com">email</a>
+    <a href="https://github.com/yusiali" target="_blank" rel="noopener">github</a>
+    <a href="https://www.linkedin.com/in/yusiali/" target="_blank" rel="noopener">linkedin</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
