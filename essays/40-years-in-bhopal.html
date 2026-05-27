@@ -66,14 +66,13 @@
 
   /* ───── Header (matches main site, drummond brand) ───── */
   .site-header {
-    padding: clamp(28px, 5vh, 48px) var(--pad-x) 18px;
+    padding: clamp(28px, 5vh, 48px) var(--pad-x) 0;
     max-width: var(--col);
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 32px;
-    border-bottom: 1px solid var(--rule);
   }
   .brand {
     font-family: var(--serif-display);
@@ -235,6 +234,9 @@
     margin: 0 0 1.25em;
     text-wrap: pretty;
     color: var(--ink-soft);
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphenate-limit-chars: 9 5 4;
   }
   .prose p:first-of-type::first-line {
     /* keep simple — no small caps here */
