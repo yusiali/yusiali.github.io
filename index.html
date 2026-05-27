@@ -94,13 +94,14 @@
 
   /* ───── Header / Nav ───── */
   .site-header {
-    padding: clamp(28px, 5vh, 48px) var(--pad-x) 0;
+    padding: clamp(28px, 5vh, 48px) var(--pad-x) 18px;
     max-width: var(--col);
     margin: 0 auto;
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     gap: 32px;
+    border-bottom: 1px solid var(--rule);
   }
   .brand {
     font-family: var(--mono);
@@ -552,6 +553,22 @@
     body { font-size: 17px; }
     ul.entries > li,
     .index-row { grid-template-columns: 72px 1fr; gap: 16px; }
+  }
+  /* On true phone widths, stack the year above the title so the note
+     body gets the full content width instead of being squeezed into a
+     ~220px column. Two-line notes feel intentional; five-line notes
+     feel cramped. */
+  @media (max-width: 480px) {
+    ul.entries > li,
+    .index-row {
+      grid-template-columns: 1fr;
+      gap: 4px;
+    }
+    .entry-year,
+    .index-date { padding-top: 0; }
+    .entry-notes { margin-top: 10px; }
+  }
+  @media (max-width: 560px) {
     .project-head {
       grid-template-columns: 1fr auto;
       gap: 12px 16px;
