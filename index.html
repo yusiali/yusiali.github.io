@@ -94,13 +94,28 @@
 
   /* ───── Header / Nav ───── */
   .site-header {
-    padding: clamp(28px, 5vh, 48px) var(--pad-x) 0;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--paper);
+    padding: clamp(28px, 5vh, 48px) var(--pad-x) 16px;
     max-width: var(--col);
     margin: 0 auto;
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     gap: 32px;
+  }
+  /* The header is centered to --col but sticky elements need a backdrop
+     that spans the full viewport width so content scrolling underneath
+     doesn't show through the side gutters. A ::before pseudo stretches
+     beyond the element's edges to paint paper-color across the viewport. */
+  .site-header::before {
+    content: "";
+    position: absolute;
+    inset: 0 calc(50% - 50vw);
+    background: var(--paper);
+    z-index: -1;
   }
   .brand {
     font-family: var(--mono);
