@@ -115,18 +115,28 @@
     align-items: baseline;
     justify-content: space-between;
     gap: 32px;
-    border-bottom: 1px solid var(--rule);
   }
-  /* The header is centered to --col but sticky elements need a backdrop
-     that spans the full viewport width so content scrolling underneath
-     doesn't show through the side gutters. A ::before pseudo stretches
-     beyond the element's edges to paint paper-color across the viewport. */
+  /* Sticky backdrop: spans the full viewport width so scrolling content
+     doesn't show through the side gutters. */
   .site-header::before {
     content: "";
     position: absolute;
     inset: 0 calc(50% - 50vw);
     background: var(--paper);
     z-index: -1;
+  }
+  /* Bottom rule: inset to --pad-x so the line spans only the content
+     area, matching the entry/project/index row rules below it. Avoids
+     having the header rule extend into the padding zone wider than
+     every other separator on the page. */
+  .site-header::after {
+    content: "";
+    position: absolute;
+    left: var(--pad-x);
+    right: var(--pad-x);
+    bottom: 0;
+    height: 1px;
+    background: var(--rule);
   }
   .brand {
     font-family: var(--mono);
@@ -552,6 +562,7 @@
 
   /* ───── Footer ───── */
   footer.site-footer {
+    position: relative;
     max-width: var(--col);
     margin: 0 auto;
     padding: 24px var(--pad-x) 56px;
@@ -563,8 +574,18 @@
     font-size: 11px;
     letter-spacing: 0.04em;
     color: var(--muted);
-    border-top: 1px solid var(--rule);
     margin-top: clamp(48px, 8vh, 96px);
+  }
+  /* Top rule: inset to --pad-x to match every other separator on the
+     page (header, entries, projects, writings). */
+  footer.site-footer::before {
+    content: "";
+    position: absolute;
+    left: var(--pad-x);
+    right: var(--pad-x);
+    top: 0;
+    height: 1px;
+    background: var(--rule);
   }
   footer.site-footer .socials { display: flex; gap: 22px; }
   footer.site-footer a {

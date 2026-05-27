@@ -79,7 +79,6 @@
     align-items: center;
     justify-content: space-between;
     gap: 32px;
-    border-bottom: 1px solid var(--rule);
   }
   .site-header::before {
     content: "";
@@ -87,6 +86,16 @@
     inset: 0 calc(50% - 50vw);
     background: var(--paper);
     z-index: -1;
+  }
+  /* Rule inset to --pad-x so it matches the article body edges. */
+  .site-header::after {
+    content: "";
+    position: absolute;
+    left: var(--pad-x);
+    right: var(--pad-x);
+    bottom: 0;
+    height: 1px;
+    background: var(--rule);
   }
   .brand {
     font-family: var(--serif-display);
@@ -258,6 +267,7 @@
 
   /* ───── Footer ───── */
   footer.site-footer {
+    position: relative;
     max-width: var(--col);
     margin: 0 auto;
     padding: 24px var(--pad-x) 56px;
@@ -269,7 +279,15 @@
     font-size: 11px;
     letter-spacing: 0.04em;
     color: var(--muted);
-    border-top: 1px solid var(--rule);
+  }
+  footer.site-footer::before {
+    content: "";
+    position: absolute;
+    left: var(--pad-x);
+    right: var(--pad-x);
+    top: 0;
+    height: 1px;
+    background: var(--rule);
   }
   footer.site-footer .socials { display: flex; gap: 22px; }
   footer.site-footer a { border: none; color: var(--muted); text-transform: lowercase; }
