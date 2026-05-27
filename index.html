@@ -60,6 +60,16 @@
 
   *, *::before, *::after { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); }
+  /* Pin text size on mobile Safari — without this, iOS can inflate
+     declared font sizes (especially in portrait), making prose wrap
+     earlier than expected and leaving extra whitespace on the right.
+     Desktop browser mobile simulators don't replicate this behavior,
+     which is why the layout looks right in DevTools but feels
+     cramped on an actual iPhone. */
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
 
   body {
     font-family: var(--serif);
