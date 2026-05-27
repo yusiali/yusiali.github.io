@@ -8,7 +8,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..500;1,6..72,200..500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.typekit.net/xgb6tqt.css" />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..500;1,6..72,200..500&family=Instrument+Serif:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
 
 <style>
   :root {
@@ -20,6 +21,7 @@
     --muted-2: #B6B2A7;
     --rule: #D8D4C8;
     --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+    --serif-display: "drummond", "Newsreader", "Iowan Old Style", Georgia, serif;
     --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
     --col: 640px;
     --pad-x: clamp(24px, 5vw, 56px);
@@ -62,31 +64,32 @@
   }
   a:hover { opacity: 0.6; }
 
-  /* ───── Header ───── */
+  /* ───── Header (matches main site, drummond brand) ───── */
   .site-header {
     padding: clamp(28px, 5vh, 48px) var(--pad-x) 0;
     max-width: var(--col);
     margin: 0 auto;
     display: flex;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
     gap: 32px;
   }
   .brand {
-    font-family: var(--mono);
-    font-size: 12px;
-    letter-spacing: 0.04em;
-    color: var(--muted);
-    text-transform: lowercase;
+    font-family: var(--serif-display);
+    font-weight: 300;
+    font-variation-settings: "wght" 320;
+    font-size: clamp(24px, 3vw, 30px);
+    letter-spacing: -0.004em;
+    color: var(--ink);
+    text-transform: none;
+    line-height: 1;
+    white-space: nowrap;
+    flex-shrink: 0;
     border: none;
   }
-  .brand:hover { color: var(--ink); opacity: 0.6; }
-  .brand .dot {
-    display: inline-block; width: 5px; height: 5px;
-    background: var(--ink); border-radius: 50%;
-    margin-right: 8px; transform: translateY(-2px);
-  }
-  nav.primary { display: flex; gap: 28px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; }
+  .brand:hover { color: var(--ink); opacity: 0.55; }
+  .brand .dot { display: none; }
+  nav.primary { display: flex; gap: 32px; font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; }
   nav.primary a {
     border: none;
     color: var(--muted);

@@ -43,6 +43,13 @@
       --col: 780px;
       --pad-x: clamp(40px, 6vw, 72px);
     }
+    /* At desktop widths the column itself caps reading width (~636–700px),
+       which is already inside the comfortable range. Drop the per-block
+       em-based caps so content fills the column and right-aligns with the
+       header bar, instead of ending short of it. */
+    .prose,
+    .project-desc,
+    .index-desc { max-width: none; }
   }
   @media (min-width: 1440px) {
     :root {
