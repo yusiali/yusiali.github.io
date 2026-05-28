@@ -17,8 +17,8 @@
     --paper-deep: #EDEAE1;
     --ink: #1A1A1A;
     --ink-soft: #2E2D2A;
-    --muted: #8A8780;
-    --muted-2: #B6B2A7;
+    --muted: #6F6C64;
+    --muted-2: #A4A096;
     --rule: #D8D4C8;
     --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
     --serif-display: "drummond", "Newsreader", "Iowan Old Style", Georgia, serif;
@@ -47,7 +47,7 @@
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body {
     font-family: var(--serif);
-    font-weight: 300;
+    font-weight: 400;
     font-size: 18px;
     line-height: 1.7;
     font-feature-settings: "kern", "liga", "calt";
@@ -166,7 +166,7 @@
 
   h1.title {
     font-family: var(--serif);
-    font-weight: 300;
+    font-weight: 400;
     font-variation-settings: "opsz" 60;
     font-size: clamp(36px, 5.4vw, 52px);
     line-height: 1.06;
@@ -187,7 +187,7 @@
   figure figcaption {
     font-family: var(--serif);
     font-style: italic;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 14px;
     line-height: 1.55;
     color: var(--muted);
@@ -205,7 +205,7 @@
   blockquote.epigraph {
     font-family: var(--serif);
     font-style: italic;
-    font-weight: 300;
+    font-weight: 400;
     font-variation-settings: "opsz" 22;
     font-size: clamp(18px, 2vw, 20px);
     line-height: 1.55;
@@ -230,7 +230,7 @@
   blockquote.pullquote {
     font-family: var(--serif);
     font-style: italic;
-    font-weight: 300;
+    font-weight: 400;
     font-variation-settings: "opsz" 24;
     font-size: clamp(19px, 2.1vw, 22px);
     line-height: 1.5;
@@ -297,6 +297,8 @@
     body { font-size: 17px; line-height: 1.65; }
     h1.title { margin-bottom: 32px; }
     figure { margin: 28px 0; }
+    /* Edge-to-edge header rule on phones (matches main site). */
+    .site-header::after { left: 0; right: 0; }
     footer.site-footer {
       flex-direction: column; align-items: flex-start; gap: 12px;
     }

@@ -22,8 +22,12 @@
     --paper-deep: #EDEAE1;
     --ink: #1A1A1A;
     --ink-soft: #2E2D2A;
-    --muted: #8A8780;
-    --muted-2: #B6B2A7;
+    /* --muted darkened from #8A8780 (contrast ~3.2:1 — failed AA)
+       to #6F6C64 (~5.0:1) so italic gray subtitles like project
+       descriptions and writings index descs are readable as body text
+       while still reading as visually subordinate. */
+    --muted: #6F6C64;
+    --muted-2: #A4A096;
     --rule: #D8D4C8;
     --accent: #1A1A1A;
 
@@ -73,7 +77,7 @@
 
   body {
     font-family: var(--serif);
-    font-weight: 300;
+    font-weight: 400;
     font-size: 18px;
     line-height: 1.62;
     font-feature-settings: "kern", "liga", "calt";
@@ -227,7 +231,7 @@
 
   .lede {
     font-family: var(--serif);
-    font-weight: 300;
+    font-weight: 400;
     font-variation-settings: "opsz" 18;
     font-size: 18px;
     line-height: 1.55;
@@ -247,11 +251,11 @@
 
   h2.section {
     font-family: var(--mono);
-    font-size: 12px;
-    font-weight: 500;
+    font-size: 13px;
+    font-weight: 600;
     text-transform: lowercase;
-    letter-spacing: 0.16em;
-    color: var(--muted);
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
     margin: 0 0 28px;
     display: flex;
     align-items: center;
@@ -400,11 +404,11 @@
     color: var(--ink);
     line-height: 1.35;
   }
-  .entry-title em { color: var(--muted); font-style: italic; font-weight: 300; }
+  .entry-title em { color: var(--muted); font-style: italic; font-weight: 400; }
   .entry-org {
     font-family: var(--serif);
     font-style: italic;
-    font-weight: 300;
+    font-weight: 400;
     color: var(--muted);
     font-size: 16px;
   }
@@ -418,7 +422,7 @@
   }
   .entry-notes li {
     font-family: var(--serif);
-    font-weight: 300;
+    font-weight: 400;
     font-size: 14.5px;
     line-height: 1.5;
     color: var(--ink-soft);
@@ -472,7 +476,7 @@
   .index-desc {
     font-family: var(--serif);
     font-style: italic;
-    font-weight: 300;
+    font-weight: 400;
     color: var(--muted);
     margin-top: 4px;
     font-size: 16px;
@@ -538,7 +542,7 @@
     grid-column: 2 / 3;
     font-family: var(--serif);
     font-style: italic;
-    font-weight: 300;
+    font-weight: 400;
     color: var(--muted);
     font-size: 16px;
     line-height: 1.55;
@@ -600,6 +604,12 @@
     body { font-size: 17px; }
     ul.entries > li,
     .index-row { grid-template-columns: 72px 1fr; gap: 16px; }
+    /* On phones the header rule extends edge-to-edge of the viewport
+       instead of being inset to --pad-x. The header itself already
+       fills the viewport width at this size (max-width: 640px exceeds
+       any phone viewport), so setting left/right to 0 puts the rule
+       at the screen borders. */
+    .site-header::after { left: 0; right: 0; }
   }
   /* On true phone widths, stack the year above the title so the note
      body gets the full content width instead of being squeezed into a
