@@ -90,6 +90,16 @@
 
   ::selection { background: #1A1A1A; color: var(--paper); }
 
+  /* Keyboard focus: explicit, high-contrast outline that doesn't fight
+     the editorial design. :focus-visible only triggers for keyboard
+     navigation (Tab), not mouse clicks. */
+  :focus { outline: none; }
+  :focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
   a {
     color: inherit;
     text-decoration: none;
@@ -639,7 +649,11 @@
     .project-desc,
     .project-meta,
     .project-image { grid-column: 1 / -1; }
-    h2.section { font-size: 11px; }
+    /* Bump small text up on phones for readability.
+       Entry notes (timestamps + experience bullets) and the footer
+       were dipping below comfortable phone reading sizes. */
+    .entry-notes li { font-size: 15px; line-height: 1.55; }
+    footer.site-footer { font-size: 12px; }
     .avatar { width: 76px; height: 76px; margin-bottom: 22px; }
     footer.site-footer {
       flex-direction: column;

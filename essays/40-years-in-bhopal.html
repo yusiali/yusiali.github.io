@@ -45,6 +45,13 @@
   html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); }
   /* Pin text size on mobile Safari (see index.html for rationale). */
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  /* Keyboard focus indicator (see index.html for rationale). */
+  :focus { outline: none; }
+  :focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
   body {
     font-family: var(--serif);
     font-weight: 400;
@@ -283,6 +290,11 @@
     body { font-size: 17px; line-height: 1.65; }
     h1.title { margin-bottom: 32px; }
     figure { margin: 28px 0; }
+    /* Bump small text up on phones for readability. */
+    figure figcaption { font-size: 15px; }
+    blockquote.epigraph cite,
+    blockquote.pullquote cite { font-size: 12px; }
+    footer.site-footer { font-size: 12px; }
     /* Edge-to-edge header rule on phones (matches main site). */
     .site-header::after { left: 0; right: 0; }
     footer.site-footer {
