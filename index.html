@@ -243,7 +243,7 @@
     font-family: var(--serif);
     font-weight: 400;
     font-variation-settings: "opsz" 18;
-    font-size: 18px;
+    font-size: 19px;
     line-height: 1.55;
     color: var(--ink-soft);
     margin: 0 0 8px;
@@ -261,10 +261,10 @@
 
   h2.section {
     font-family: var(--mono);
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 500;
     text-transform: lowercase;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.12em;
     color: var(--muted);
     margin: 0 0 28px;
     display: flex;
@@ -364,8 +364,8 @@
 
   /* ───── Home — about prose ───── */
   .prose {
-    font-size: 17px;
-    line-height: 1.65;
+    font-size: 18px;
+    line-height: 1.7;
     color: var(--ink-soft);
     max-width: 36em;
   }
@@ -410,7 +410,7 @@
   .entry-title {
     font-family: var(--serif);
     font-weight: 400;
-    font-size: 18px;
+    font-size: 19px;
     color: var(--ink);
     line-height: 1.35;
   }
@@ -420,7 +420,7 @@
     font-style: italic;
     font-weight: 400;
     color: var(--muted);
-    font-size: 16px;
+    font-size: 17px;
   }
   .entry-notes {
     list-style: none;
@@ -433,8 +433,8 @@
   .entry-notes li {
     font-family: var(--serif);
     font-weight: 400;
-    font-size: 14.5px;
-    line-height: 1.5;
+    font-size: 15.5px;
+    line-height: 1.55;
     color: var(--ink-soft);
     padding: 0;
     border: none;
@@ -446,8 +446,8 @@
   .entry-notes li::before {
     content: "—"; /* em dash */
     color: var(--muted-2);
-    font-size: 14.5px;
-    line-height: 1.5;
+    font-size: 15.5px;
+    line-height: 1.55;
   }
 
   /* ───── Writings index ───── */
@@ -475,7 +475,7 @@
     font-family: var(--serif);
     font-weight: 400;
     font-variation-settings: "opsz" 24;
-    font-size: 22px;
+    font-size: 24px;
     line-height: 1.3;
     letter-spacing: -0.005em;
     color: var(--ink);
@@ -488,9 +488,9 @@
     font-style: italic;
     font-weight: 400;
     color: var(--muted);
-    margin-top: 4px;
-    font-size: 16px;
-    line-height: 1.5;
+    margin-top: 6px;
+    font-size: 17px;
+    line-height: 1.55;
     max-width: 34em;
   }
 
@@ -536,7 +536,7 @@
     font-family: var(--serif);
     font-weight: 400;
     font-variation-settings: "opsz" 30;
-    font-size: 26px;
+    font-size: 28px;
     line-height: 1.2;
     letter-spacing: -0.01em;
     color: var(--ink);
@@ -554,7 +554,7 @@
     font-style: italic;
     font-weight: 400;
     color: var(--muted);
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.55;
     max-width: 34em;
     margin: 0;
@@ -611,14 +611,12 @@
 
   /* ───── Responsive ───── */
   @media (max-width: 560px) {
-    body { font-size: 17px; }
+    /* body keeps 18px on phones now too — the legibility lift from
+       17->18 outweighs any line-fit cost, and modern mobile readability
+       guides put body type at 17-18px minimum. */
     ul.entries > li,
     .index-row { grid-template-columns: 72px 1fr; gap: 16px; }
-    /* On phones the header rule extends edge-to-edge of the viewport
-       instead of being inset to --pad-x. The header itself already
-       fills the viewport width at this size (max-width: 640px exceeds
-       any phone viewport), so setting left/right to 0 puts the rule
-       at the screen borders. */
+    /* Edge-to-edge header rule (see above for rationale). */
     .site-header::after { left: 0; right: 0; }
   }
   /* On true phone widths, stack the year above the title so the note
@@ -649,10 +647,9 @@
     .project-desc,
     .project-meta,
     .project-image { grid-column: 1 / -1; }
-    /* Bump small text up on phones for readability.
-       Entry notes (timestamps + experience bullets) and the footer
-       were dipping below comfortable phone reading sizes. */
-    .entry-notes li { font-size: 15px; line-height: 1.55; }
+    /* Phone-only bumps for the smallest text on the page. */
+    .entry-notes li { font-size: 16px; line-height: 1.55; }
+    .entry-notes li::before { font-size: 16px; }
     footer.site-footer { font-size: 12px; }
     .avatar { width: 76px; height: 76px; margin-bottom: 22px; }
     footer.site-footer {
@@ -801,7 +798,7 @@
       <h2 class="section">about</h2>
       <div class="prose">
         <p>I'm drawn to the question of how we read intent from the body and build systems that adapt to people rather than asking people to adapt to them. That question sits at the crossroads of human-centered design and engineering, and right now it leads me to neurotech.</p>
-        <p>In 2025 I joined Paradromics as a neuroengineering intern, where I work on neural data transmission and the experimental rig for the Connexus® BCI platform, focused on restoring speech and device control for people with motor conditions. More recently I co-founded ExG Labs, where we're building assistive neural interfaces for people with motor impairments.</p>
+        <p>In 2025 I joined <a href="https://www.paradromics.com/" target="_blank" rel="noopener">Paradromics</a> as a neuroengineering intern, where I work on neural data transmission and the experimental rig for the <a href="https://www.paradromics.com/product" target="_blank" rel="noopener">Connexus® BCI platform</a>, focused on restoring speech and device control for people with motor conditions. More recently I co-founded <a href="https://exglabs.com/" target="_blank" rel="noopener">ExG Labs</a>, where we're building assistive neural interfaces for people with motor impairments.</p>
         <p>Outside of engineering I think a lot about the philosophy behind what we build and how technology reshapes human agency, something I believe should sit at the core of any meaningful technical work.</p>
         <p class="reading">
           <span class="label">currently reading</span>
@@ -880,6 +877,7 @@
       year: "Since 2025",
       title: "Neuroengineering Intern",
       org: "Paradromics",
+      orgUrl: "https://www.paradromics.com/",
       notes: [
         "Running electrophysiology experiments and working on neural data transmission for the Connexus® BCI platform.",
       ],
@@ -889,6 +887,7 @@
       year: "Since 2026",
       title: "Co-founder",
       org: "ExG Labs",
+      orgUrl: "https://exglabs.com/",
       notes: [
         "Developing assistive neural interfaces to redefine how people with motor impairments interact with their devices.",
       ],
@@ -971,12 +970,15 @@
       const notesHtml = (e.notes && e.notes.length)
         ? `<ul class="entry-notes">${e.notes.map(n => `<li><span>${escapeHtml(n)}</span></li>`).join("")}</ul>`
         : "";
+      const orgHtml = e.orgUrl
+        ? `<a href="${escapeHtml(e.orgUrl)}" target="_blank" rel="noopener">${escapeHtml(e.org)}</a>`
+        : escapeHtml(e.org);
       return `
       <li>
         <div class="entry-year">${escapeHtml(e.year)}</div>
         <div class="entry-body">
           <div class="entry-title">${escapeHtml(e.title)}</div>
-          <div class="entry-org">${escapeHtml(e.org)}</div>
+          <div class="entry-org">${orgHtml}</div>
           ${notesHtml}
         </div>
       </li>

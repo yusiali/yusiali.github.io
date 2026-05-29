@@ -182,7 +182,7 @@
     font-family: var(--serif);
     font-style: italic;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.55;
     color: var(--muted);
     margin-top: 12px;
@@ -250,8 +250,8 @@
     margin: 0 0 1.25em;
     text-wrap: pretty;
     color: var(--ink-soft);
-    font-size: 17px;
-    line-height: 1.65;
+    font-size: 18px;
+    line-height: 1.7;
   }
   .prose p:first-of-type::first-line {
     /* keep simple — no small caps here */
@@ -287,11 +287,10 @@
   footer.site-footer a:hover { color: var(--ink); opacity: 1; }
 
   @media (max-width: 560px) {
-    body { font-size: 17px; line-height: 1.65; }
+    /* body stays 18px on mobile too — standard mobile body min. */
     h1.title { margin-bottom: 32px; }
     figure { margin: 28px 0; }
-    /* Bump small text up on phones for readability. */
-    figure figcaption { font-size: 15px; }
+    figure figcaption { font-size: 16px; }
     blockquote.epigraph cite,
     blockquote.pullquote cite { font-size: 12px; }
     footer.site-footer { font-size: 12px; }
