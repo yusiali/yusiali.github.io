@@ -361,6 +361,8 @@
 
   .block { margin: 0 0 clamp(56px, 9vh, 88px); }
   .block:last-child { margin-bottom: 0; }
+  /* Intro ledes are lightweight — pull the following section closer */
+  .block:has(.lede) { margin-bottom: clamp(36px, 6vh, 56px); }
 
   /* ───── Home — about prose ───── */
   .prose {
