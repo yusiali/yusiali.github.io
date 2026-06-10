@@ -506,21 +506,20 @@
   }
 
   /* ───── Projects ───── */
-  .project { padding: 26px 0; border-top: 1px solid var(--rule); }
-  .project:last-child { border-bottom: 1px solid var(--rule); }
-  .project-head {
+  /* Compact, list-based rows — small thumbnail beside the text. */
+  .project {
     display: grid;
-    grid-template-columns: 92px 1fr auto;
+    grid-template-columns: 132px 1fr;
     gap: 24px;
-    align-items: baseline;
-    margin-bottom: 0;
+    padding: 22px 0;
+    border-top: 1px solid var(--rule);
+    align-items: start;
   }
-  .project-image {
-    grid-column: 2 / 3;
-    margin: 14px 0 2px;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    max-height: 240px;
+  .project:last-child { border-bottom: 1px solid var(--rule); }
+  .project-thumb-link { display: block; border: none; padding: 0; }
+  .project-thumb {
+    width: 132px;
+    aspect-ratio: 4 / 3;
     object-fit: cover;
     object-position: center;
     background: var(--paper-deep);
@@ -528,26 +527,26 @@
     filter: saturate(0.92);
     transition: filter 320ms cubic-bezier(0.16, 1, 0.3, 1);
   }
-  .project-image-link {
-    grid-column: 2 / 3;
-    display: block;
-    border: none;
-    padding: 0;
-    margin: 14px 0 2px;
+  .project:hover .project-thumb { filter: saturate(1); }
+  .project-body { min-width: 0; }
+  .project-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin: 0 0 6px;
   }
-  .project-image-link .project-image { margin: 0; }
-  .project:hover .project-image { filter: saturate(1); }
   .project-num {
     font-family: var(--mono);
     font-size: 11px;
-    color: var(--muted);
+    color: var(--muted-2);
     letter-spacing: 0.04em;
+    flex-shrink: 0;
   }
   .project-title {
     font-family: var(--serif);
     font-weight: 400;
-    font-variation-settings: "opsz" 30;
-    font-size: 28px;
+    font-variation-settings: "opsz" 28;
+    font-size: 21px;
     line-height: 1.2;
     letter-spacing: -0.01em;
     color: var(--ink);
@@ -557,35 +556,29 @@
   }
   a.project-title { transition: opacity 240ms cubic-bezier(0.16, 1, 0.3, 1); }
   a.project-title:hover { opacity: 0.55; }
-  .project-casestudy {
-    border: none;
-    color: var(--ink-soft);
-    text-transform: lowercase;
-  }
-  .project-casestudy:hover { color: var(--ink); opacity: 1; }
   .project-year {
     font-family: var(--mono);
     font-size: 11px;
     color: var(--muted);
     letter-spacing: 0.04em;
+    margin-left: auto;
+    flex-shrink: 0;
   }
   .project-desc {
-    grid-column: 2 / 3;
     font-family: var(--serif);
     font-style: italic;
     font-weight: 400;
     color: var(--muted);
-    font-size: 17px;
-    line-height: 1.55;
-    max-width: 34em;
+    font-size: 15.5px;
+    line-height: 1.5;
+    max-width: 44em;
     margin: 0;
   }
   .project-meta {
-    grid-column: 2 / 3;
-    margin-top: 14px;
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 16px;
     font-family: var(--mono);
     font-size: 11px;
     letter-spacing: 0.04em;
@@ -594,6 +587,8 @@
   .project-meta a { border-bottom-color: var(--rule); color: var(--ink-soft); }
   .project-meta .tag::before { content: "—"; margin-right: 8px; color: var(--muted-2); }
   .project-meta .tag { color: var(--muted); }
+  .project-casestudy { border: none; color: var(--ink-soft); text-transform: lowercase; }
+  .project-casestudy:hover { color: var(--ink); opacity: 1; }
 
   /* ───── Footer ───── */
   footer.site-footer {
@@ -655,20 +650,10 @@
     .entry-notes { margin-top: 10px; }
   }
   @media (max-width: 560px) {
-    .project-head {
-      grid-template-columns: 1fr auto;
-      gap: 12px 16px;
-    }
-    .project-num {
-      grid-column: 1 / -1;
-      margin-bottom: 4px;
-    }
-    .project-title { grid-column: 1 / 2; }
-    .project-year  { grid-column: 2 / 3; }
-    .project-desc,
-    .project-meta,
-    .project-image-link,
-    .project-image { grid-column: 1 / -1; }
+    /* Keep the list compact on phones — smaller thumbnail, text beside it. */
+    .project { grid-template-columns: 96px 1fr; gap: 16px; }
+    .project-thumb { width: 96px; }
+    .project-title { font-size: 19px; }
     /* Phone-only bumps for the smallest text on the page. */
     .entry-notes li { font-size: 16px; line-height: 1.55; }
     .entry-notes li::before { font-size: 16px; }
@@ -942,8 +927,7 @@
       year: "2024",
       url: "projects/aggiesbci.html",
       desc: "A brain-controlled wheelchair that translates trained mental commands into real-world movement. 1st place at the Aggies Create Innovation Expo.",
-      image: "assets/projects/aggiesbci.jpg",
-      imagePosition: "center 72%",
+      image: "assets/projects/aggiesbci/hero.jpg",
       meta: [
         { label: "EMOTIV Insight · Arduino · Python", kind: "tag" },
       ],
@@ -1040,27 +1024,29 @@
         if (m.url) return `<a href="${escapeHtml(m.url)}" target="_blank" rel="noopener">${escapeHtml(m.label)} ↗</a>`;
         return `<span class="tag">${escapeHtml(m.label)}</span>`;
       }).join("");
-      const rawImage = p.image
-        ? `<img class="project-image" src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}" loading="lazy"${p.imagePosition ? ` style="object-position:${escapeHtml(p.imagePosition)}"` : ""} />`
+      const rawThumb = p.image
+        ? `<img class="project-thumb" src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}" loading="lazy"${p.imagePosition ? ` style="object-position:${escapeHtml(p.imagePosition)}"` : ""} />`
         : "";
+      const thumbHtml = (p.url && rawThumb)
+        ? `<a class="project-thumb-link" href="${escapeHtml(p.url)}" aria-label="${escapeHtml(p.title)} — case study" tabindex="-1">${rawThumb}</a>`
+        : rawThumb;
       const titleHtml = p.url
         ? `<a class="project-title" href="${escapeHtml(p.url)}">${escapeHtml(p.title)}</a>`
         : `<h3 class="project-title">${escapeHtml(p.title)}</h3>`;
-      const imageHtml = (p.url && rawImage)
-        ? `<a class="project-image-link" href="${escapeHtml(p.url)}" aria-label="${escapeHtml(p.title)} — case study">${rawImage}</a>`
-        : rawImage;
       const caseStudyHtml = p.url
         ? `<a class="project-casestudy" href="${escapeHtml(p.url)}">case study ↗</a>`
         : "";
       const metaInner = caseStudyHtml + metaHtml;
       return `
         <article class="project${p.url ? " has-page" : ""}">
-          <div class="project-head">
-            <div class="project-num">${num}</div>
-            ${titleHtml}
-            <div class="project-year">${escapeHtml(p.year)}</div>
+          ${thumbHtml}
+          <div class="project-body">
+            <div class="project-head">
+              <span class="project-num">${num}</span>
+              ${titleHtml}
+              <span class="project-year">${escapeHtml(p.year)}</span>
+            </div>
             <p class="project-desc">${escapeHtml(p.desc)}</p>
-            ${imageHtml}
             ${metaInner ? `<div class="project-meta">${metaInner}</div>` : ""}
           </div>
         </article>

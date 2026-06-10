@@ -165,8 +165,14 @@
     font-size: clamp(36px, 5.4vw, 52px);
     line-height: 1.06;
     letter-spacing: -0.018em;
-    margin: 0 0 28px;
+    margin: 4px 0 28px;
     text-wrap: balance;
+  }
+  /* Project wordmark used as the page's header mark, in place of a text title. */
+  h1.title .title-logo {
+    display: block;
+    height: clamp(44px, 7.5vw, 64px);
+    width: auto;
   }
 
   /* ───── Project spec block ───── */
@@ -212,11 +218,16 @@
     margin: 36px 0 36px;
   }
   figure img {
-    width: 100%;
     display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 480px;
+    margin: 0 auto;
     border-radius: 3px;
     background: var(--paper-deep);
   }
+  /* The clean CAD render sits on a white backdrop — let it span full width. */
+  figure.figure-wide img { width: 100%; max-height: none; }
   figure figcaption {
     font-family: var(--serif);
     font-style: italic;
@@ -326,7 +337,7 @@
 
     <p class="eyebrow">project <span class="sep">·</span> 2024 – 25</p>
 
-    <h1 class="title">AggiesBCI</h1>
+    <h1 class="title"><img class="title-logo" src="../assets/projects/aggiesbci/logo.png" alt="AggiesBCI" /></h1>
 
     <dl class="project-spec">
       <dt>Role</dt>
@@ -339,10 +350,10 @@
       <dd>1st of 20 teams — Aggies Create Innovation Expo</dd>
     </dl>
 
-    <figure>
-      <img src="../assets/projects/aggiesbci.jpg" alt="The Aura v3 control module — a 3D-printed planetary gear differential and rack system that drives the wheelchair joystick." loading="eager" />
+    <figure class="figure-wide">
+      <img src="../assets/projects/aggiesbci/hero.jpg" alt="CAD render of the Aura v3 control module — a 3D-printed planetary gear differential and rack system that drives a wheelchair joystick." loading="eager" />
       <figcaption>
-        Aura v3 — the modular module that clamps over a wheelchair's existing joystick and moves it with a 3D-printed planetary differential and rack.
+        Aura v3 — the module clamps over a wheelchair's existing joystick and moves it with a 3D-printed planetary gear differential and rack.
       </figcaption>
     </figure>
 
@@ -365,23 +376,27 @@
       <p>The key design decision is that last step. Rather than rewiring each wheelchair's electronics, the module physically actuates the existing joystick — so one device can fit many chairs without touching their internals.</p>
 
       <figure>
-        <img src="../assets/projects/aggiesbci/early-prototype.jpg" alt="The first AggiesBCI prototype, built on an OpenBCI Ganglion board." loading="lazy" />
+        <img src="../assets/projects/aggiesbci/early-prototype.jpg" alt="A teammate wiring up an electrode cap during early prototyping." loading="lazy" />
         <figcaption>
-          The first prototype, driven by an OpenBCI Ganglion board and the BrainFlow library before we moved to the EMOTIV stack.
+          Early in the build — wiring up an electrode cap while we were still prototyping the signal chain on an OpenBCI Ganglion and the BrainFlow library.
         </figcaption>
       </figure>
 
       <h2 class="section-head">From a first-place hack to a real system</h2>
       <p>The version that won the Expo was, honestly, held together with household parts — cardboard shims to set the height, a linear actuator secured with hot glue and JB Weld, and no real safety system if the power cut out. It worked, it was convincing, and it proved the core idea. But it wasn't something you could hand to a person who relies on it.</p>
 
+      <p>The other problem was mechanical. Our first proper actuator was a rack-and-pinion that drove the joystick on both axes through a rigid collar. It worked in the middle of the range, but near the extremes — full forward, full right — the two racks started fighting each other and the mechanism would bind and stall. Worse, once it was overconstrained the joystick couldn't fall back to neutral on its own: its centering spring wasn't strong enough to overcome the friction we'd built into the linkage. For a wheelchair, a control that won't reliably re-center is a non-starter.</p>
+
+      <p>So for <em>Aura v3</em> we redesigned the whole actuation system around a double-helical planetary gear differential rather than rigidly coupling the two axes. The differential distributes motion between the axes and leaves a bit of passive compliance in the system — exactly what the rigid version lacked. The jamming at the edges went away, and, the part I like most, the joystick re-centers itself: whenever the servos return to neutral or lose power, the mechanism rides the joystick's own spring back to center. We also added a small slot at the end of the rack linkage on purpose, to give the joint a little controlled play so tiny alignment errors couldn't push it back into a constrained state.</p>
+
       <figure>
-        <img src="../assets/projects/aggiesbci/actuator.gif" alt="The linear actuator moving the wheelchair joystick." loading="lazy" />
+        <img src="../assets/projects/aggiesbci/module-joystick.jpg" alt="The 3D-printed Aura v3 module mounted on a real wheelchair joystick controller." loading="lazy" />
         <figcaption>
-          The early linear-actuator system driving the joystick — the proof-of-concept that placed first at the Expo.
+          The printed module on an actual wheelchair joystick — servo-driven differential and rack up top, the chair's own controller underneath.
         </figcaption>
       </figure>
 
-      <p>So the next semester we rebuilt it as <em>Aura v3</em>. We weighed a few mechanisms in a decision matrix — a rack-and-pinion, a gear differential, an expanding linkage — and landed on a double-helical planetary gear differential paired with a rack, driven by a servo and 3D-printed in PLA. It mounts on a modular baseplate sized to a standard joystick, with sliding grooves and Y-spacers so it can be adjusted to different chairs. We moved the dataflow onto a Raspberry Pi Zero 2 and added a real safety mechanism: a Schottky-diode OR gate so the system fails safe on power loss.</p>
+      <p>A few principles fell out of all this: never couple the two axes rigidly, leave some play in on purpose, keep friction at the joystick interface low, use gear reduction to smooth the torque instead of forcing the servos, and always let the joystick's native spring-centering win when the system is idle. The module is 3D-printed in PLA on a modular baseplate sized to a standard joystick, with a suspended-servo mount and adjustable spacing — joystick geometries vary between chairs more than you'd expect. We moved the data pipeline onto a Raspberry Pi Zero 2 and added a real safety mechanism: a Schottky-diode OR gate so the system fails safe on power loss.</p>
 
       <blockquote class="pullquote">
         One device, unlimited wheelchairs — non-invasive, modular, and built in-house.
@@ -401,9 +416,9 @@
       <p>None of this was a solo effort. Garner handled CAD and prototyping, Oswin the electrical work, Daniel the biomedical side, and Pranav the market research — and the project leaned on a lot of generous support around us. The Meloy Innovator's Grant funded our first round of hardware, EMOTIV backed us with Pro access, and we partnered with Aggies with Disabilities and Dr. Erika Greene to start testing the system with the people it's actually for and to pressure-test how modular it really is.</p>
 
       <figure>
-        <img src="../assets/projects/aggiesbci/team.jpg" alt="The AggiesBCI team." loading="lazy" />
+        <img src="../assets/projects/aggiesbci/team-candid.jpg" alt="The AggiesBCI team working together in the makerspace." loading="lazy" />
         <figcaption>
-          The AggiesBCI team — Oswin, Pranav, me, Garner, and Daniel. None of this happens without them.
+          The team in the makerspace where most of this got built. None of it happens without Garner, Oswin, Daniel, and Pranav.
         </figcaption>
       </figure>
 
