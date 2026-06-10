@@ -1028,13 +1028,13 @@
         ? `<img class="project-thumb" src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}" loading="lazy"${p.imagePosition ? ` style="object-position:${escapeHtml(p.imagePosition)}"` : ""} />`
         : "";
       const thumbHtml = (p.url && rawThumb)
-        ? `<a class="project-thumb-link" href="${escapeHtml(p.url)}" aria-label="${escapeHtml(p.title)} — case study" tabindex="-1">${rawThumb}</a>`
+        ? `<a class="project-thumb-link" href="${escapeHtml(p.url)}" aria-label="${escapeHtml(p.title)} — project page" tabindex="-1">${rawThumb}</a>`
         : rawThumb;
       const titleHtml = p.url
         ? `<a class="project-title" href="${escapeHtml(p.url)}">${escapeHtml(p.title)}</a>`
         : `<h3 class="project-title">${escapeHtml(p.title)}</h3>`;
       const caseStudyHtml = p.url
-        ? `<a class="project-casestudy" href="${escapeHtml(p.url)}">case study ↗</a>`
+        ? `<a class="project-casestudy" href="${escapeHtml(p.url)}">project page ↗</a>`
         : "";
       const metaInner = caseStudyHtml + metaHtml;
       return `
