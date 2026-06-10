@@ -887,7 +887,7 @@
       title: "40 Years in Bhopal",
       date: "Dec 2024",
       desc: "Forty years after the deadliest industrial disaster in history — corporate negligence, an uncounted death toll, and the long work of justice still underway.",
-      url: "essays/40-years-in-bhopal.html",
+      url: "/essays/40-years-in-bhopal.html",
     },
   ];
 
@@ -938,7 +938,7 @@
     {
       title: "AggiesBCI",
       year: "2024",
-      url: "projects/aggiesbci.html",
+      url: "/projects/aggiesbci.html",
       desc: "A brain-controlled wheelchair that translates trained mental commands into real-world movement. 1st place at the Aggies Create Innovation Expo.",
       image: "assets/projects/aggiesbci/hero.jpg",
       meta: [
@@ -1109,6 +1109,19 @@
   });
 
   window.addEventListener("popstate", setRoute);
+
+  /* A direct hit on /projects gets 301'd to /projects/ by GitHub Pages
+     (the real directory). Normalize that trailing slash to the clean path
+     so the URL bar matches the in-app links. */
+  (function normalizeTrailingSlash() {
+    const p = location.pathname;
+    if (p.length > 1 && p.endsWith("/")) {
+      const clean = p.replace(/\/+$/, "");
+      if (ROUTES[clean.replace(/^\/+/, "").toLowerCase()]) {
+        history.replaceState({}, "", clean + location.hash);
+      }
+    }
+  })();
 
   /* ─────────── Init ─────────── */
   renderEntries("experience-now", experienceNow);
