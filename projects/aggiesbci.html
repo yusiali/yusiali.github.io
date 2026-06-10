@@ -359,21 +359,21 @@
 
     <div class="prose">
 
-      <p>AggiesBCI is a brain–computer interface that lets someone drive an electric wheelchair with their thoughts. No joystick, no sip-and-puff straw, no head array — just a non-invasive EEG headset and a small module that translates trained mental commands into motion. We took it from a cardboard-and-hot-glue prototype to an engineered system, and along the way it placed first out of twenty teams at the Aggies Create Innovation Expo.</p>
+      <p>AggiesBCI lets someone drive an electric wheelchair with their thoughts — no joystick, no sip-and-puff straw, no head array. The brain-sensing comes from a commercial, non-invasive EEG headset; what we designed is the universal module that mounts onto the chair's own joystick and turns that headset's commands into real movement. The headset is off-the-shelf — the module is the part that's ours. We took it from a cardboard-and-hot-glue prototype to an engineered system, and along the way it placed first out of twenty teams at the Aggies Create Innovation Expo.</p>
 
       <h2 class="section-head">The problem</h2>
       <p>Around 5.4 million people in the U.S. live with some form of paralysis, and roughly 2.7 million use a wheelchair. For people with severe mobility impairment — quadriplegia, tremor, limited upper-limb function — the standard ways of steering a powered chair don't really work. About 40% of wheelchair users find joystick steering nearly impossible. Roughly 30% report neck pain after prolonged use of chin and head arrays, and sip-and-puff control degrades as soon as the user is short of breath.</p>
       <p>The thread through all of these is that they demand fine, sustained physical control from people who have the least of it. We wanted to move the control signal upstream — to intent itself — without anything invasive.</p>
 
       <h2 class="section-head">How it works</h2>
-      <p>An EEG headset reads the small voltages your brain generates. A brain–computer interface learns to recognize patterns in those signals and maps them to discrete commands. Ours runs on an EMOTIV Insight: the user trains a neutral baseline and a handful of mental commands in EMOTIV's software, and from then on the headset streams classified intent in real time.</p>
+      <p>An EEG headset reads the small voltages your brain generates, and a brain–computer interface learns to recognize patterns in those signals and map them to discrete commands. We didn't build that part — we used a commercial EMOTIV Insight: the user trains a neutral baseline and a handful of mental commands in EMOTIV's own software, and from then on the headset streams classified intent in real time. Our system picks up where that output leaves off.</p>
       <p>From there the pipeline is deliberately simple:</p>
       <ul>
         <li><strong>Acquire</strong> — the EMOTIV Insight captures EEG and classifies the trained mental commands.</li>
         <li><strong>Interpret</strong> — Python, via EMOTIV's Cortex API, reads those commands and forwards them over serial.</li>
         <li><strong>Actuate</strong> — an Arduino running C receives the command and drives the servos that move the chair's own joystick.</li>
       </ul>
-      <p>The key design decision is that last step. Rather than rewiring each wheelchair's electronics, the module physically actuates the existing joystick — so one device can fit many chairs without touching their internals.</p>
+      <p>The key design decision is that last step. Rather than rewiring each wheelchair's electronics, the module physically actuates the existing joystick — so one device can fit many chairs without touching their internals. That module, not the headset, is the part we actually engineered, and it's where all the hard problems lived.</p>
 
       <figure>
         <img src="../assets/projects/aggiesbci/early-prototype.jpg" alt="A teammate wiring up an electrode cap during early prototyping." loading="lazy" />
