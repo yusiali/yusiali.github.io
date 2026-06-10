@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AggiesBCI — Yusuf Ali</title>
+<meta name="description" content="A brain-controlled wheelchair that translates trained EEG mental commands into real-world movement. 1st place at the Aggies Create Innovation Expo." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://use.typekit.net/xgb6tqt.css" />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..500;1,6..72,200..500&family=Instrument+Serif:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --paper: #F7F5F0;
+    --paper-deep: #EDEAE1;
+    --ink: #1A1A1A;
+    --ink-soft: #2E2D2A;
+    --muted: #6F6C64;
+    --muted-2: #A4A096;
+    --rule: #D8D4C8;
+    --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+    --serif-display: "drummond", "Newsreader", "Iowan Old Style", Georgia, serif;
+    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --col: 640px;
+    --pad-x: clamp(18px, 5vw, 56px);
+  }
+
+  /* Widen on larger viewports — see index.html for rationale. */
+  @media (min-width: 1024px) {
+    :root {
+      --col: 780px;
+      --pad-x: clamp(40px, 6vw, 72px);
+    }
+  }
+  @media (min-width: 1440px) {
+    :root {
+      --col: 860px;
+      --pad-x: clamp(48px, 6vw, 96px);
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); }
+  /* Pin text size on mobile Safari (see index.html for rationale). */
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  /* Keyboard focus indicator (see index.html for rationale). */
+  :focus { outline: none; }
+  :focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  body {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.7;
+    font-feature-settings: "kern", "liga", "calt";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection { background: #1A1A1A; color: var(--paper); }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1px;
+    transition: opacity 240ms cubic-bezier(0.16, 1, 0.3, 1), border-color 240ms;
+  }
+  a:hover { opacity: 0.6; }
+
+  /* ───── Header (matches main site, drummond brand) ───── */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--paper);
+    padding: clamp(28px, 5vh, 48px) var(--pad-x) 16px;
+    max-width: var(--col);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  .site-header::before {
+    content: "";
+    position: absolute;
+    inset: 0 calc(50% - 50vw);
+    background: var(--paper);
+    z-index: -1;
+  }
+  /* Rule inset to --pad-x so it matches the article body edges. */
+  .site-header::after {
+    content: "";
+    position: absolute;
+    left: var(--pad-x);
+    right: var(--pad-x);
+    bottom: 0;
+    height: 1px;
+    background: var(--rule);
+  }
+  .brand {
+    font-family: var(--serif-display);
+    font-weight: 300;
+    font-variation-settings: "wght" 320;
+    font-size: clamp(24px, 3vw, 30px);
+    letter-spacing: -0.004em;
+    color: var(--ink);
+    text-transform: none;
+    line-height: 1;
+    white-space: nowrap;
+    flex-shrink: 0;
+    border: none;
+  }
+  .brand:hover { color: var(--ink); opacity: 0.55; }
+  .brand .dot { display: none; }
+  nav.primary { display: flex; gap: 32px; font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; }
+  nav.primary a {
+    border: none;
+    color: var(--muted);
+    text-transform: lowercase;
+    position: relative;
+  }
+  nav.primary a::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -4px;
+    height: 1px;
+    background: var(--ink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  nav.primary a:hover { color: var(--ink); opacity: 1; }
+  nav.primary a:hover::after,
+  nav.primary a.active::after { transform: scaleX(1); }
+  nav.primary a.active { color: var(--ink); }
+
+  /* ───── Article ───── */
+  article.essay {
+    max-width: var(--col);
+    margin: 0 auto;
+    padding: clamp(24px, 4vh, 48px) var(--pad-x) 96px;
+  }
+
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    text-transform: lowercase;
+    margin: 0 0 18px;
+  }
+  .eyebrow .sep { display: inline-block; margin: 0 10px; color: var(--muted-2); }
+
+  h1.title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-variation-settings: "opsz" 60;
+    font-size: clamp(36px, 5.4vw, 52px);
+    line-height: 1.06;
+    letter-spacing: -0.018em;
+    margin: 0 0 28px;
+    text-wrap: balance;
+  }
+
+  /* ───── Project spec block ───── */
+  .project-spec {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 10px 28px;
+    margin: 0 0 40px;
+    padding: 22px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .project-spec dt {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-top: 3px;
+  }
+  .project-spec dd {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: 17px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .project-spec dd a { color: var(--ink); border-color: var(--rule); }
+
+  h2.section-head {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-variation-settings: "opsz" 40;
+    font-size: 26px;
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+    color: var(--ink);
+    margin: 52px 0 18px;
+    text-wrap: balance;
+  }
+
+  figure {
+    margin: 36px 0 36px;
+  }
+  figure img {
+    width: 100%;
+    display: block;
+    border-radius: 3px;
+    background: var(--paper-deep);
+  }
+  figure figcaption {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--muted);
+    margin-top: 12px;
+    text-wrap: pretty;
+  }
+  figure figcaption .credit {
+    font-style: normal;
+    color: var(--muted-2);
+    font-size: 12px;
+    margin-left: 4px;
+  }
+
+  blockquote.pullquote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-variation-settings: "opsz" 24;
+    font-size: clamp(19px, 2.1vw, 22px);
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 36px 0 36px 0;
+    padding: 4px 0 4px 24px;
+    border: none;
+    border-left: 1px solid var(--rule);
+    max-width: 34em;
+    text-wrap: pretty;
+  }
+
+  .prose p {
+    margin: 0 0 1.25em;
+    text-wrap: pretty;
+    color: var(--ink-soft);
+    font-size: 18px;
+    line-height: 1.7;
+  }
+  .prose a { color: var(--ink); border-color: var(--rule); }
+
+  .prose ul {
+    margin: 0 0 1.25em;
+    padding-left: 1.1em;
+    color: var(--ink-soft);
+  }
+  .prose li { margin: 0 0 0.5em; line-height: 1.6; }
+
+  /* ───── Footer ───── */
+  footer.site-footer {
+    position: relative;
+    max-width: var(--col);
+    margin: 0 auto;
+    padding: 24px var(--pad-x) 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 24px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+  footer.site-footer::before {
+    content: "";
+    position: absolute;
+    left: var(--pad-x);
+    right: var(--pad-x);
+    top: 0;
+    height: 1px;
+    background: var(--rule);
+  }
+  footer.site-footer .socials { display: flex; gap: 22px; }
+  footer.site-footer a { border: none; color: var(--muted); text-transform: lowercase; }
+  footer.site-footer a:hover { color: var(--ink); opacity: 1; }
+
+  @media (max-width: 560px) {
+    h1.title { margin-bottom: 24px; }
+    h2.section-head { font-size: 23px; margin: 44px 0 16px; }
+    .project-spec { grid-template-columns: 1fr; gap: 4px 0; }
+    .project-spec dt { padding-top: 14px; }
+    .project-spec dt:first-child { padding-top: 0; }
+    figure { margin: 28px 0; }
+    figure figcaption { font-size: 16px; }
+    footer.site-footer { font-size: 12px; }
+    /* Edge-to-edge header rule on phones (matches main site). */
+    .site-header::after { left: 0; right: 0; }
+    footer.site-footer {
+      flex-direction: column; align-items: flex-start; gap: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="/"><span class="dot"></span>yusuf ali</a>
+  <nav class="primary" aria-label="Primary">
+    <a href="/#/writings">writings</a>
+    <a href="/#/projects" class="active">projects</a>
+  </nav>
+</header>
+
+<main>
+  <article class="essay">
+
+    <p class="eyebrow">project <span class="sep">·</span> 2024</p>
+
+    <h1 class="title">AggiesBCI</h1>
+
+    <!-- ───────────────────────────────────────────────────────────────
+         DRAFT — placeholder copy. We'll flesh these sections out together
+         once Yusuf shares the project docs, photos, and specifics.
+         ─────────────────────────────────────────────────────────────── -->
+
+    <dl class="project-spec">
+      <dt>Role</dt>
+      <dd>Founder &amp; Software Lead</dd>
+      <dt>Team</dt>
+      <dd>AggiesBCI, Texas A&amp;M University</dd>
+      <dt>Stack</dt>
+      <dd>EMOTIV Insight EEG · Arduino · Python</dd>
+      <dt>Recognition</dt>
+      <dd>1st place — Aggies Create Innovation Expo</dd>
+    </dl>
+
+    <figure>
+      <img src="../assets/projects/aggiesbci.jpg" alt="The AggiesBCI brain-controlled wheelchair prototype." loading="eager" />
+      <figcaption>
+        The AggiesBCI prototype — a universal control module that drives an electric wheelchair from EEG-based mental commands.
+      </figcaption>
+    </figure>
+
+    <div class="prose">
+
+      <p>AggiesBCI is a brain–computer interface that lets a user steer an electric wheelchair using trained mental commands — no joystick, no physical input. We built it as a universal module that clamps onto an existing e-wheelchair, reading EEG signals and translating intent into motion. The project took 1st place at the Aggies Create Innovation Expo.</p>
+
+      <h2 class="section-head">The problem</h2>
+      <p><em>Placeholder — the motivation: who this is for, what existing assistive controls fall short on, and why a non-invasive BCI is worth pursuing. We'll fill this in from your notes.</em></p>
+
+      <h2 class="section-head">How it works</h2>
+      <p><em>Placeholder — the signal pipeline end to end: acquiring EEG from the EMOTIV Insight, training and classifying mental commands, mapping classified intent to motor commands, and driving the wheelchair through the Arduino control layer.</em></p>
+      <ul>
+        <li><strong>Signal acquisition</strong> — <em>how raw EEG is captured and streamed.</em></li>
+        <li><strong>Command training &amp; classification</strong> — <em>how mental commands are trained and recognized.</em></li>
+        <li><strong>Motion mapping</strong> — <em>how intent becomes directional control.</em></li>
+        <li><strong>Wheelchair interface</strong> — <em>how the module physically drives the chair.</em></li>
+      </ul>
+
+      <h2 class="section-head">Results</h2>
+      <p><em>Placeholder — what we demonstrated, accuracy/latency figures, the Expo outcome, and what we learned.</em></p>
+
+      <h2 class="section-head">Team &amp; credits</h2>
+      <p><em>Placeholder — teammates and their contributions, advisors, and anything we want to credit.</em></p>
+
+    </div>
+
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div>© <span id="year"></span> yusuf ali</div>
+  <div class="socials">
+    <a href="mailto:yusi.ali3@gmail.com">email</a>
+    <a href="https://github.com/yusiali" target="_blank" rel="noopener">github</a>
+    <a href="https://www.linkedin.com/in/yusiali/" target="_blank" rel="noopener">linkedin</a>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
