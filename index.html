@@ -3,6 +3,19 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- SPA redirect restore: 404.html encodes deep links as /?/path; decode it
+     back to a clean path before anything renders (github.com/rafgraph/spa-github-pages). -->
+<script>
+  (function () {
+    var l = window.location;
+    if (l.search[1] === "/") {
+      var decoded = l.search.slice(1).split("&").map(function (s) {
+        return s.replace(/~and~/g, "&");
+      }).join("?");
+      window.history.replaceState(null, null, l.pathname.slice(0, -1) + decoded + l.hash);
+    }
+  })();
+</script>
 <title>Yusuf Ali</title>
 <meta name="description" content="Yusuf Ali — neurotech, signal processing, philosophy." />
 
@@ -784,10 +797,10 @@
 <body>
 
 <header class="site-header" data-screen-label="Header">
-  <a class="brand" href="#/" data-link><span class="dot"></span>yusuf ali</a>
+  <a class="brand" href="/" data-link data-route="home"><span class="dot"></span>yusuf ali</a>
   <nav class="primary" aria-label="Primary">
-    <a href="#/writings" data-link data-route="writings">writings</a>
-    <a href="#/projects" data-link data-route="projects">projects</a>
+    <a href="/writings" data-link data-route="writings">writings</a>
+    <a href="/projects" data-link data-route="projects">projects</a>
   </nav>
 </header>
 
@@ -1054,12 +1067,18 @@
     }).join("");
   }
 
-  /* ─────────── Hash routing ─────────── */
+  /* ─────────── Path-based routing (clean URLs, no #/) ───────────
+     Sections are switched client-side via the History API so the URL
+     reads /writings, /projects, etc. Deep links and reloads are handled
+     by 404.html, which bounces unknown paths back here (see <head>). */
+  const ROUTES = { "": "home", "home": "home", "writings": "writings", "projects": "projects" };
+  function pathToRoute(pathname) {
+    const seg = pathname.replace(/^\/+|\/+$/g, "").toLowerCase();
+    return ROUTES[seg] || "home";
+  }
+
   function setRoute() {
-    const hash = (location.hash || "#/").replace(/^#\/?/, "");
-    const key = hash || "home";
-    const map = { "": "home", "home": "home", "writings": "writings", "projects": "projects" };
-    const target = map[key] || "home";
+    const target = pathToRoute(location.pathname);
 
     document.querySelectorAll(".route").forEach(r => {
       r.classList.toggle("active", r.id === target);
@@ -1075,7 +1094,21 @@
       : `Yusuf Ali — ${target}`;
   }
 
-  window.addEventListener("hashchange", setRoute);
+  // Intercept same-origin in-app links so navigation stays client-side.
+  document.addEventListener("click", (e) => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = e.target.closest("a[data-link]");
+    if (!a) return;
+    const url = new URL(a.href);
+    if (url.origin !== location.origin) return;
+    e.preventDefault();
+    if (url.pathname !== location.pathname) {
+      history.pushState({}, "", url.pathname);
+      setRoute();
+    }
+  });
+
+  window.addEventListener("popstate", setRoute);
 
   /* ─────────── Init ─────────── */
   renderEntries("experience-now", experienceNow);
