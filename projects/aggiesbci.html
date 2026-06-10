@@ -324,54 +324,90 @@
 <main>
   <article class="essay">
 
-    <p class="eyebrow">project <span class="sep">·</span> 2024</p>
+    <p class="eyebrow">project <span class="sep">·</span> 2024 – 25</p>
 
     <h1 class="title">AggiesBCI</h1>
-
-    <!-- ───────────────────────────────────────────────────────────────
-         DRAFT — placeholder copy. We'll flesh these sections out together
-         once Yusuf shares the project docs, photos, and specifics.
-         ─────────────────────────────────────────────────────────────── -->
 
     <dl class="project-spec">
       <dt>Role</dt>
       <dd>Founder &amp; Software Lead</dd>
       <dt>Team</dt>
-      <dd>AggiesBCI, Texas A&amp;M University</dd>
+      <dd>Daniel R., Garner L., Oswin Z., Pranav N. &amp; me — Texas A&amp;M</dd>
       <dt>Stack</dt>
-      <dd>EMOTIV Insight EEG · Arduino · Python</dd>
+      <dd>EMOTIV Insight EEG · Python (Cortex API) · Arduino · C</dd>
       <dt>Recognition</dt>
-      <dd>1st place — Aggies Create Innovation Expo</dd>
+      <dd>1st of 20 teams — Aggies Create Innovation Expo</dd>
     </dl>
 
     <figure>
-      <img src="../assets/projects/aggiesbci.jpg" alt="The AggiesBCI brain-controlled wheelchair prototype." loading="eager" />
+      <img src="../assets/projects/aggiesbci.jpg" alt="The Aura v3 control module — a 3D-printed planetary gear differential and rack system that drives the wheelchair joystick." loading="eager" />
       <figcaption>
-        The AggiesBCI prototype — a universal control module that drives an electric wheelchair from EEG-based mental commands.
+        Aura v3 — the modular module that clamps over a wheelchair's existing joystick and moves it with a 3D-printed planetary differential and rack.
       </figcaption>
     </figure>
 
     <div class="prose">
 
-      <p>AggiesBCI is a brain–computer interface that lets a user steer an electric wheelchair using trained mental commands — no joystick, no physical input. We built it as a universal module that clamps onto an existing e-wheelchair, reading EEG signals and translating intent into motion. The project took 1st place at the Aggies Create Innovation Expo.</p>
+      <p>AggiesBCI is a brain–computer interface that lets someone drive an electric wheelchair with their thoughts. No joystick, no sip-and-puff straw, no head array — just a non-invasive EEG headset and a small module that translates trained mental commands into motion. We took it from a cardboard-and-hot-glue prototype to an engineered system, and along the way it placed first out of twenty teams at the Aggies Create Innovation Expo.</p>
 
       <h2 class="section-head">The problem</h2>
-      <p><em>Placeholder — the motivation: who this is for, what existing assistive controls fall short on, and why a non-invasive BCI is worth pursuing. We'll fill this in from your notes.</em></p>
+      <p>Around 5.4 million people in the U.S. live with some form of paralysis, and roughly 2.7 million use a wheelchair. For people with severe mobility impairment — quadriplegia, tremor, limited upper-limb function — the standard ways of steering a powered chair don't really work. About 40% of wheelchair users find joystick steering nearly impossible. Roughly 30% report neck pain after prolonged use of chin and head arrays, and sip-and-puff control degrades as soon as the user is short of breath.</p>
+      <p>The thread through all of these is that they demand fine, sustained physical control from people who have the least of it. We wanted to move the control signal upstream — to intent itself — without anything invasive.</p>
 
       <h2 class="section-head">How it works</h2>
-      <p><em>Placeholder — the signal pipeline end to end: acquiring EEG from the EMOTIV Insight, training and classifying mental commands, mapping classified intent to motor commands, and driving the wheelchair through the Arduino control layer.</em></p>
+      <p>An EEG headset reads the small voltages your brain generates. A brain–computer interface learns to recognize patterns in those signals and maps them to discrete commands. Ours runs on an EMOTIV Insight: the user trains a neutral baseline and a handful of mental commands in EMOTIV's software, and from then on the headset streams classified intent in real time.</p>
+      <p>From there the pipeline is deliberately simple:</p>
       <ul>
-        <li><strong>Signal acquisition</strong> — <em>how raw EEG is captured and streamed.</em></li>
-        <li><strong>Command training &amp; classification</strong> — <em>how mental commands are trained and recognized.</em></li>
-        <li><strong>Motion mapping</strong> — <em>how intent becomes directional control.</em></li>
-        <li><strong>Wheelchair interface</strong> — <em>how the module physically drives the chair.</em></li>
+        <li><strong>Acquire</strong> — the EMOTIV Insight captures EEG and classifies the trained mental commands.</li>
+        <li><strong>Interpret</strong> — Python, via EMOTIV's Cortex API, reads those commands and forwards them over serial.</li>
+        <li><strong>Actuate</strong> — an Arduino running C receives the command and drives the servos that move the chair's own joystick.</li>
       </ul>
+      <p>The key design decision is that last step. Rather than rewiring each wheelchair's electronics, the module physically actuates the existing joystick — so one device can fit many chairs without touching their internals.</p>
 
-      <h2 class="section-head">Results</h2>
-      <p><em>Placeholder — what we demonstrated, accuracy/latency figures, the Expo outcome, and what we learned.</em></p>
+      <figure>
+        <img src="../assets/projects/aggiesbci/early-prototype.jpg" alt="The first AggiesBCI prototype, built on an OpenBCI Ganglion board." loading="lazy" />
+        <figcaption>
+          The first prototype, driven by an OpenBCI Ganglion board and the BrainFlow library before we moved to the EMOTIV stack.
+        </figcaption>
+      </figure>
 
-      <h2 class="section-head">Team &amp; credits</h2>
-      <p><em>Placeholder — teammates and their contributions, advisors, and anything we want to credit.</em></p>
+      <h2 class="section-head">From a first-place hack to a real system</h2>
+      <p>The version that won the Expo was, honestly, held together with household parts — cardboard shims to set the height, a linear actuator secured with hot glue and JB Weld, and no real safety system if the power cut out. It worked, it was convincing, and it proved the core idea. But it wasn't something you could hand to a person who relies on it.</p>
+
+      <figure>
+        <img src="../assets/projects/aggiesbci/actuator.gif" alt="The linear actuator moving the wheelchair joystick." loading="lazy" />
+        <figcaption>
+          The early linear-actuator system driving the joystick — the proof-of-concept that placed first at the Expo.
+        </figcaption>
+      </figure>
+
+      <p>So the next semester we rebuilt it as <em>Aura v3</em>. We weighed a few mechanisms in a decision matrix — a rack-and-pinion, a gear differential, an expanding linkage — and landed on a double-helical planetary gear differential paired with a rack, driven by a servo and 3D-printed in PLA. It mounts on a modular baseplate sized to a standard joystick, with sliding grooves and Y-spacers so it can be adjusted to different chairs. We moved the dataflow onto a Raspberry Pi Zero 2 and added a real safety mechanism: a Schottky-diode OR gate so the system fails safe on power loss.</p>
+
+      <blockquote class="pullquote">
+        One device, unlimited wheelchairs — non-invasive, modular, and built in-house.
+      </blockquote>
+
+      <figure>
+        <img src="../assets/projects/aggiesbci/wheelchair.jpg" alt="The AggiesBCI control module mounted on an electric wheelchair." loading="lazy" />
+        <figcaption>
+          The system mounted on the chair — the module sits over the joystick rather than replacing any of the wheelchair's electronics.
+        </figcaption>
+      </figure>
+
+      <h2 class="section-head">My role</h2>
+      <p>I founded the team and led the software. I wrote the control code in Python — using BrainFlow with the OpenBCI Ganglion on the early prototype, then the EMOTIV Cortex API once we switched headsets — to read classified commands and pass them over serial to the Arduino. On the firmware side I wrote the C that takes those commands and drives the servo and actuator movements. Earlier on, I validated the whole signal-to-motion loop on a Hexbug toy before we ever pointed it at a wheelchair, which let us debug the BCI pipeline without risking the real hardware.</p>
+
+      <h2 class="section-head">The team &amp; where it went</h2>
+      <p>None of this was a solo effort. Garner handled CAD and prototyping, Oswin the electrical work, Daniel the biomedical side, and Pranav the market research — and the project leaned on a lot of generous support around us. The Meloy Innovator's Grant funded our first round of hardware, EMOTIV backed us with Pro access, and we partnered with Aggies with Disabilities and Dr. Erika Greene to start testing the system with the people it's actually for and to pressure-test how modular it really is.</p>
+
+      <figure>
+        <img src="../assets/projects/aggiesbci/team.jpg" alt="The AggiesBCI team." loading="lazy" />
+        <figcaption>
+          The AggiesBCI team — Oswin, Pranav, me, Garner, and Daniel. None of this happens without them.
+        </figcaption>
+      </figure>
+
+      <p>By the time the project wound down, the plan was to solidify the second actuator prototype, run it with prospective users, and branch the BCI work toward other assistive interfaces — controlling a cursor and keyboard, or a grasping arm — by the same logic that started all of this: move the control signal up to intent, and meet people where their bodies are.</p>
 
     </div>
 
