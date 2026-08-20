@@ -798,14 +798,14 @@
 
     <div class="block">
       <img class="avatar" src="assets/headshot-sm.jpg" alt="Yusuf Ali" width="92" height="92" />
-      <p class="lede"><span class="lede-lead">CS and neuroscience at Texas A&amp;M.</span> <span class="lede-trail">Interested in neural interfaces and assistive tech.</span></p>
+      <p class="lede"><span class="lede-lead">CS and neuroscience at Texas A&amp;M.</span> <span class="lede-trail">Building assistive neural interfaces at <a href="https://exglabs.com/" target="_blank" rel="noopener">ExG Labs</a>.</span></p>
     </div>
 
     <div class="block">
       <h2 class="section">about</h2>
       <div class="prose">
         <p>I'm drawn to the question of how we read intent from the body and build systems that adapt to people rather than asking people to adapt to them. That question sits at the crossroads of human-centered design and engineering, and right now it leads me to neurotech.</p>
-        <p>In 2025 I joined <a href="https://www.paradromics.com/" target="_blank" rel="noopener">Paradromics</a> as a neuroengineering intern, where I work on neural data transmission and the experimental rig for the <a href="https://www.paradromics.com/product" target="_blank" rel="noopener">Connexus® BCI platform</a>, focused on restoring speech and device control for people with motor conditions. More recently I co-founded <a href="https://exglabs.com/" target="_blank" rel="noopener">ExG Labs</a>, where we're building assistive neural interfaces for people with motor impairments.</p>
+        <p>In 2025 I joined <a href="https://www.paradromics.com/" target="_blank" rel="noopener">Paradromics</a> as a neuroengineering intern, where I run electrophysiology experiments and work on neural data transmission for the Connexus® BCI platform, focused on restoring speech and device control for people with motor conditions. More recently I co-founded <a href="https://exglabs.com/" target="_blank" rel="noopener">ExG Labs</a> with <a href="https://aliabouelazm.com" target="_blank" rel="noopener">Ali Abouelazm</a>, where we're building a universal sEMG interface layer, a wrist-worn device paired with an AI reliability engine that learns each user's individual muscle signal profile and adapts as it evolves, translating residual muscle intent into reliable digital commands.</p>
         <p>Outside of engineering I think a lot about the philosophy behind what we build and how technology reshapes human agency, something I believe should sit at the core of any meaningful technical work.</p>
         <p class="reading">
           <span class="label">currently reading</span>
@@ -881,22 +881,21 @@
   /* ─────────── Experience ─────────── */
   const experienceNow = [
     {
+      year: "Since 2026",
+      title: "Co-founder",
+      org: "ExG Labs",
+      orgUrl: "https://exglabs.com/",
+      notes: [
+        "Developing a universal sEMG interface layer to redefine how people with motor impairments interact with their devices. Currently pre-prototype, conducting active clinician and user interviews.",
+      ],
+    },
+    {
       year: "Since 2025",
       title: "Neuroengineering Intern",
       org: "Paradromics",
       orgUrl: "https://www.paradromics.com/",
       notes: [
         "Running electrophysiology experiments and working on neural data transmission for the Connexus® BCI platform.",
-      ],
-    },
-    {
-      // TODO: confirm role + dates for ExG Labs
-      year: "Since 2026",
-      title: "Co-founder",
-      org: "ExG Labs",
-      orgUrl: "https://exglabs.com/",
-      notes: [
-        "Developing assistive neural interfaces to redefine how people with motor impairments interact with their devices.",
       ],
     },
     {
@@ -922,6 +921,17 @@
 
   /* ─────────── Projects ─────────── */
   const projects = [
+    {
+      title: "ExG Labs",
+      year: "2026",
+      titleUrl: "https://exglabs.com",
+      desc: "A wrist-worn sEMG interface layer that decodes residual muscle signal into digital commands for people with motor impairments, powered by an AI reliability engine that adapts to each user's signal profile over time. Currently pre-prototype, conducting active clinician and user interviews.",
+      image: "assets/projects/exglabs.png",
+      meta: [
+        { label: "sEMG · signal classification · adaptive AI", kind: "tag" },
+        { label: "exglabs.com", url: "https://exglabs.com" },
+      ],
+    },
     {
       title: "AggiesBCI",
       year: "2024",
@@ -1027,18 +1037,22 @@
       const rawThumb = p.image
         ? `<img class="project-thumb" src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}" loading="lazy"${p.imagePosition ? ` style="object-position:${escapeHtml(p.imagePosition)}"` : ""} />`
         : "";
-      const thumbHtml = (p.url && rawThumb)
-        ? `<a class="project-thumb-link" href="${escapeHtml(p.url)}" aria-label="${escapeHtml(p.title)} — project page" tabindex="-1">${rawThumb}</a>`
+      // p.url → internal project page; p.titleUrl → external site (opens in new tab).
+      const linkUrl = p.url || p.titleUrl;
+      const ext = !p.url && p.titleUrl;
+      const linkAttrs = ext ? ` target="_blank" rel="noopener"` : "";
+      const thumbHtml = (linkUrl && rawThumb)
+        ? `<a class="project-thumb-link" href="${escapeHtml(linkUrl)}"${linkAttrs} aria-label="${escapeHtml(p.title)}${ext ? "" : " — project page"}" tabindex="-1">${rawThumb}</a>`
         : rawThumb;
-      const titleHtml = p.url
-        ? `<a class="project-title" href="${escapeHtml(p.url)}">${escapeHtml(p.title)}</a>`
+      const titleHtml = linkUrl
+        ? `<a class="project-title" href="${escapeHtml(linkUrl)}"${linkAttrs}>${escapeHtml(p.title)}</a>`
         : `<h3 class="project-title">${escapeHtml(p.title)}</h3>`;
       const caseStudyHtml = p.url
         ? `<a class="project-casestudy" href="${escapeHtml(p.url)}">project page ↗</a>`
         : "";
       const metaInner = caseStudyHtml + metaHtml;
       return `
-        <article class="project${p.url ? " has-page" : ""}">
+        <article class="project${linkUrl ? " has-page" : ""}">
           ${thumbHtml}
           <div class="project-body">
             <div class="project-head">
